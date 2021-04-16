@@ -19,10 +19,10 @@ public class StudyJavaFX extends Application {
     
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
-        Scene scene = new Scene(root);
+        Parent startRoot = FXMLLoader.load(getClass().getResource("StartGUI.fxml"));
+        Scene scene = new Scene(startRoot);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("sdsddsaa");
+        primaryStage.setTitle("EE-KAE-CARDGAME");
         primaryStage.show();
     }
 
