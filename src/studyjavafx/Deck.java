@@ -10,12 +10,14 @@ import java.util.Collections;
 
 /**
  *
- * @author PREMz
+ * @author PREMz ,Pollapatronum
  */
 public class Deck {
     private ArrayList<Card> deck;
     
-    //Constructors
+    /*@Constructor
+    Append the Card to deck ArrayList Obj.
+    */
     public Deck() {
         deck = new ArrayList<Card>();
         String face[] = {"hearts","diamonds","spades","clubs"};
@@ -36,15 +38,26 @@ public class Deck {
         return deck;
     }
     
-    //Methods
+    /*@method
+    This method will shuffle the deck ArrayList Obj.
+    */
     public void shuffleDeck(){
         Collections.shuffle(deck);
     }
     
+    /*@method
+    This method will do fist in-out logic form deck ArrayList Obj.
+    */
     public Card draw(){
         if(deck.size() > 0) 
             return deck.remove(0);
         else                
             return null;
     }
+
+    @Override
+    public String toString() {
+        return deck+" ";
+    }
+    
 }

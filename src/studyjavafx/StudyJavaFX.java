@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author PREMz
+ * @author PREMz ,Pollapatronum
  */
 public class StudyJavaFX extends Application {
     

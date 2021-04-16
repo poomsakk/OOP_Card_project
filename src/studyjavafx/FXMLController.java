@@ -22,6 +22,7 @@ public class FXMLController implements Initializable {
         deck = new Deck();
         deck.shuffleDeck();
         x = 0;
+        System.out.println(deck);
     }
 
     @FXML public void drawButtonClicked(){

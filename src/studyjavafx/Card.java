@@ -9,22 +9,25 @@ import javafx.scene.image.Image;
 
 /**
  *
- * @author PREMz
+ * @author PREMz ,Pollapatronum
  */
 public class Card {
     private String faceName, suit;
     private Image image;
     
-    //Constructors
+    /*@Constructors
+    Param for set the face name and suit of cards with image files
+    */
     public Card(String faceName, String suit) {
-        this.faceName = faceName;
-        this.suit = suit;
+        
+        this.faceName = faceName.toLowerCase();
+        this.suit = suit.toLowerCase();
         String fileName = suit + "_of_" + faceName + ".png";
         System.out.println(fileName);
         image = new Image("studyjavafx/images/" + fileName);
     }
     
-    //getter, setter, tostring
+    //getter, setter, toString
     public String getFaceName() {
         return faceName;
     }
