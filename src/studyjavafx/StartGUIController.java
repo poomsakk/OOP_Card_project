@@ -30,7 +30,11 @@ public class StartGUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+
+    /*@Method
+    This method use for start button to switch the scene.
+    */
     @FXML public void startButtonClicked(ActionEvent event) throws IOException{
         Parent gameRoot = FXMLLoader.load(getClass().getResource("FXML.fxml"));
         Scene scene = new Scene(gameRoot);
