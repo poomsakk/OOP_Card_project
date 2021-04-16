@@ -49,12 +49,18 @@ public class Deck {
     This method will do fist in-out logic form deck ArrayList Obj.
     */
     public Card draw(){
-        if(deck.size() > 0) 
+        if(deck.size() > 0) {
+            //System.out.println(deck.get(0));
             return deck.remove(0);
+        }
         else                
             return null;
     }
 
+    public int getDeckSize(){
+        return deck.size();
+    }
+    
     @Override
     public String toString() {
         return deck+" ";
