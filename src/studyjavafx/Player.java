@@ -6,13 +6,16 @@
 package studyjavafx;
 
 import java.util.ArrayList;
+import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 
 /**
  *
  * @author PolWarapob
  */
 public class Player {
-    private ArrayList<Card> playerCards; // Cards on player hand.
+    private ArrayList<Card> playerCards = new ArrayList<Card>(); // Cards on player hand.
+    @FXML private ImageView card1,card2,card3,card4,card5,card6,card7,card8,card9,card10,card11,card12,card13;
     
     public Player() {
         
@@ -26,8 +29,11 @@ public class Player {
     This method get param Card obj pass in playerCars ArrayList<>.
     */
     public void setPlayerCards(ArrayList<Card> playerCards) {
-        playerCards = new ArrayList<>();
         this.playerCards = playerCards;
+    }
+    
+    public int getPlayerCardsSize(){
+        return playerCards.size();
     }
     
     @Override
