@@ -104,18 +104,11 @@ public class Deck {
     */
     public Deck() {
         deck = new ArrayList<Card>();
-    }
-    
-    public Deck(boolean b){
-        if(b){
-            deck = new ArrayList<Card>();
-            String face[] = {"clubs","diamonds","hearts","spades",};
-            String suit[] = {"ace","2","3","4","5","6","7","8","9","10","jack","queen","king"};
-            int n = 0;
+        String face[] = {"hearts","diamonds","spades","clubs"};
+        String suit[] = {"2","3","4","5","6","7","8","9","10","jack","queen","king","ace"};
+        for(String f : face){
             for(String s : suit){
-                for(String f : face){
-                    deck.add(new Card(f, s, ++n));
-                }
+                deck.add(new Card(f, s));
             }
         }
     }
@@ -136,10 +129,6 @@ public class Deck {
         Collections.shuffle(deck);
     }
     
-    public void sortDeck(){
-        Collections.sort(deck);
-    }
-    
     /*@method
     This method will do fist in-out logic form deck ArrayList Obj.
     */
@@ -150,14 +139,6 @@ public class Deck {
         }
         else                
             return null;
-    }
-    
-    public int getSize(){
-        return deck.size();
-    }
-    
-    public void addCard(Card card){
-        deck.add(card);
     }
 
     public int getDeckSize(){
