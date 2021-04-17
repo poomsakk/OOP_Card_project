@@ -4,7 +4,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
-<<<<<<< HEAD
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.FXMLController">
@@ -17,81 +16,5 @@
             <Font size="21.0" />
          </font>
       </Button>
-=======
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.FXMLController">
-   <children>
-      <Button fx:id="drawButton" layoutX="274.0" layoutY="39.0" mnemonicParsing="false" onAction="#drawButtonClicked" text="Button" />
-      <ImageView fx:id="imgView1" fitHeight="200.0" fitWidth="134.0" layoutX="207.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
-      <HBox layoutX="11.0" layoutY="468.0" prefHeight="78.0" prefWidth="778.0" spacing="5.0">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card1" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card2" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card3" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card4" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card5" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0" textAlignment="CENTER">
-               <graphic>
-                  <ImageView fx:id="card6" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card7" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card8" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card9" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card10" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card11" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card12" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="78.0" prefWidth="38.0">
-               <graphic>
-                  <ImageView fx:id="card13" fitHeight="52.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" />
-               </graphic>
-            </Button>
-         </children>
-      </HBox>
->>>>>>> develop
    </children>
 </Pane>
