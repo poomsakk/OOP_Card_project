@@ -2,9 +2,13 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.StartGUIController">
+<AnchorPane id="AnchorPane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.StartGUIController">
    <children>
-      <Button fx:id="startButton" layoutX="274.0" layoutY="282.0" mnemonicParsing="false" onAction="#startButtonClicked" text="Start" />
+      <Button fx:id="startButton" layoutX="667.0" layoutY="398.0" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="128.0" prefWidth="224.0" text="Start">
+         <font>
+            <Font size="57.0" />
+         </font></Button>
    </children>
 </AnchorPane>
