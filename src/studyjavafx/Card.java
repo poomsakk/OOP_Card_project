@@ -11,21 +11,20 @@ import javafx.scene.image.Image;
  *
  * @author PREMz ,Pollapatronum
  */
-public class Card implements Comparable<Card>{
+public class Card {
     private String faceName, suit;
     private Image image;
-    private int priority;
     
     /*@Constructors
     Param for set the face name and suit of cards with image files
     */
-    public Card(String faceName, String suit, int priority) {
+    public Card(String faceName, String suit) {
         
         this.faceName = faceName.toLowerCase();
         this.suit = suit.toLowerCase();
         String fileName = suit + "_of_" + faceName + ".png";
+        System.out.println(fileName);
         image = new Image("studyjavafx/images/" + fileName);
-        this.priority = priority;
     }
     
     //getter, setter, toString
@@ -43,12 +42,8 @@ public class Card implements Comparable<Card>{
 
     @Override
     public String toString() {
-        return "Card{" + "suit=" + suit + ", faceName=" + faceName + "}";
+        return "Card{" + "faceName=" + faceName + ", suit=" + suit + '}';
     }
-
-    @Override
-    public int compareTo(Card o) {
-        return Integer.compare(priority, o.priority);
-    }
-
+    
+    //Methods
 }
