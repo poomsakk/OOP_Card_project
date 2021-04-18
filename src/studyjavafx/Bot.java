@@ -34,7 +34,16 @@ public class Bot {
     public int getBotCardsSize(){
         return botCards.size();
     }
-    
+    /*
+    public ArrayList<Card> botDropCard(){
+        ArrayList<Card> suitOfCard = new ArrayList<Card>();
+        for(int i = 0 ;i < botCards.size();i++){
+            if()
+        }
+        
+        return
+    }
+    */
     @Override
     public String toString() {
         return botCards+" ";

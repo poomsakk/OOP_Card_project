@@ -32,9 +32,12 @@ public class FXMLController implements Initializable {
         
         imageViewCardOnhands = new ArrayList<ImageView>();
         
+        
         imgView1.setImage(new Image("studyjavafx/images/backOfCard.jpg"));
         
+        
         LoadGameForOneBots();
+        //System.out.println(playerDeck[0]);
     }
 
     @FXML public void drawButtonClicked(){
