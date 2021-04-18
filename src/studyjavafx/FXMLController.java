@@ -49,6 +49,8 @@ public class FXMLController implements Initializable {
     }
 
     private void LoadGameForOneBots() {
+        System.out.println(mainDeck.getSize());
+        Deck botDeck = new Deck();
         for (int i = 0; i < 26; i++) {
             Card cardDraw = mainDeck.draw();
             playerDeck.addCard(cardDraw);
@@ -58,6 +60,12 @@ public class FXMLController implements Initializable {
         }
         hboxy.setAlignment(Pos.CENTER);
         hboxy.getChildren().addAll(imageViewCardOnhands);
+        
+        System.out.println(mainDeck.getSize());
+        for(int j = 0;j<mainDeck.getSize();j=0){
+            Card cardDraw = mainDeck.draw();
+            botDeck.addCard(cardDraw);
+        }
         
         /**Click On imgView1 to move Down
         imgView1.setImage(new Image("studyjavafx/images/backOfCard.jpg"));
