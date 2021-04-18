@@ -79,4 +79,35 @@ public class Deck {
         return deck+" ";
     }
     
+    /*
+    *
+    *
+    +++++++++++++++++For Bot+++++++++++++++++++
+    *
+    *
+    */
+    public ArrayList<Card> botDropCard(){
+        deck = new ArrayList<Card>();
+        for(int i = 0;i<deck.size();i++){
+            int forCount = 0;
+            String refSuit = null;
+            for(int j = i+1;j<deck.size();j++){
+                if(deck.get(i).getSuit().equals(deck.get(j).getSuit())){
+                    forCount++;
+                    refSuit = deck.get(i).getSuit();
+                }
+            }
+            if(forCount>1){
+                //drop all common card
+                for(int k = 0;k<deck.size();k++){
+                    if(deck.get(k).getSuit().equals(refSuit)){
+                        deck.remove(k);
+                    }
+                }
+            }
+        }
+        return deck;
+    }
+    
+    
 }

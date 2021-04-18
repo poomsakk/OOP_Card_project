@@ -37,7 +37,6 @@ public class FXMLController implements Initializable {
         
         
         LoadGameForOneBots();
-        //System.out.println(playerDeck[0]);
     }
 
     @FXML public void drawButtonClicked(){
