@@ -41,7 +41,7 @@ public class GameGUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         mainDeck = new Deck(true);   
-        mainDeck.shuffleDeck();
+        //mainDeck.shuffleDeck();
         
         playerDeck = new Deck();
         
@@ -140,15 +140,37 @@ public class GameGUIController implements Initializable {
     }
     
     private void setSpaceHbox2(int size){
-        if(size == 26)          hbox2.setSpacing(29);
-        else if(size == 24)     hbox2.setSpacing(32);
-        else if(size == 22)     hbox2.setSpacing(37);
-        else if(size == 20)     hbox2.setSpacing(42);
-        else if(size == 18)     hbox2.setSpacing(48);
-        else if(size == 16)     hbox2.setSpacing(55);
-        else if(size == 14)     hbox2.setSpacing(65);
-        else 
-            hbox2.setSpacing(0);
+        System.out.println(size);
+        switch (size) {
+            case 26: hbox2.setSpacing(29);
+                break;
+            case 24: hbox2.setSpacing(32);
+                break;
+            case 22: hbox2.setSpacing(37);
+                break;
+            case 20: hbox2.setSpacing(42);
+                break;
+            case 18: hbox2.setSpacing(48);
+                break;
+            case 16: hbox2.setSpacing(55);
+                break;
+            case 14: hbox2.setSpacing(65);
+                break;
+            case 12: hbox2.setSpacing(78);
+                break;
+            case 10: hbox2.setSpacing(98);
+                break;
+            case 8: hbox2.setSpacing(125);
+                break;       
+            case 6: hbox2.setSpacing(160);
+                break; 
+            case 4: hbox2.setSpacing(185);
+                break;
+            case 2: hbox2.setSpacing(200);
+                break;     
+            default: hbox2.setSpacing(0);
+                break;
+        }
     }
     
     
