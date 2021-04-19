@@ -67,8 +67,10 @@ public class GameGUIController implements Initializable {
             imageViewCardOnHands.get(i).setFitWidth(1080/26); //width of window /26
             imageViewCardOnHands.get(i).setFitHeight(1600/26);//heigh of window /26
         }
+        System.out.println(imageViewCardOnHands);
         hboxy.setAlignment(Pos.CENTER);
         hboxy.getChildren().addAll(imageViewCardOnHands);
+        System.out.println(hboxy);
          /**Click On imgView1 to move Down
         imgView1.setImage(new Image("studyjavafx/images/backOfCard.jpg"));
         imgView1.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
@@ -96,6 +98,7 @@ public class GameGUIController implements Initializable {
     */
     
     private void updateCardOnHands(){
+        hboxy.getChildren().clear();
         imageViewCardOnHands.clear();
         int size = playerDeck.getSize();
         for(int i = 0; i< size; i++){
