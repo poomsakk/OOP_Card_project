@@ -44,7 +44,7 @@ public class GameGUIController implements Initializable {
         imageViewCardOnHands = new ArrayList<ImageView>();
         imgView1.setImage(new Image("studyjavafx/images/backOfCard.jpg"));
         
-        //LoadGameForOneBots();
+        LoadGameForOneBots();
         
     }   
     
@@ -58,14 +58,14 @@ public class GameGUIController implements Initializable {
         playerDeck.sortDeck();
         //updateCardOnHands();
     }
-    /*
+    
     private void LoadGameForOneBots(){
         for(int i = 0; i < mainDeck.getSize()/2;i++){
             Card cardDraw = mainDeck.draw();
             playerDeck.addCard(cardDraw);
             imageViewCardOnHands.add(new ImageView(cardDraw.getImage()));
-            imageViewCardOnHands.get(i).setFitWidth(800/26); //width of window /26
-            imageViewCardOnHands.get(i).setFitHeight(600/26);//heigh of window /26
+            imageViewCardOnHands.get(i).setFitWidth(1080/26); //width of window /26
+            imageViewCardOnHands.get(i).setFitHeight(1600/26);//heigh of window /26
         }
         hboxy.setAlignment(Pos.CENTER);
         hboxy.getChildren().addAll(imageViewCardOnHands);
@@ -78,7 +78,7 @@ public class GameGUIController implements Initializable {
                 //System.out.println(x++);
                 //event.consume();
             }
-        });
+        });*/
          
     }
     
