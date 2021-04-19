@@ -56,7 +56,7 @@ public class GameGUIController implements Initializable {
     @FXML
     public void sortCardOnHands(){
         playerDeck.sortDeck();
-        //updateCardOnHands();
+        updateCardOnHands();
     }
     
     private void LoadGameForOneBots(){
@@ -94,19 +94,19 @@ public class GameGUIController implements Initializable {
     *
     *
     */
-    /*
+    
     private void updateCardOnHands(){
         imageViewCardOnHands.clear();
         int size = playerDeck.getSize();
         for(int i = 0; i< size; i++){
             imageViewCardOnHands.add(new ImageView(playerDeck.getDeck().get(i).getImage()));
-            imageViewCardOnHands.get(i).setFitWidth(800/26); //width of window /26
-            imageViewCardOnHands.get(i).setFitHeight(600/26);//heigh of window /26
+            imageViewCardOnHands.get(i).setFitWidth(1080/26); //width of window /26
+            imageViewCardOnHands.get(i).setFitHeight(1600/26);//heigh of window /26
         }
         hboxy.setAlignment(Pos.CENTER);
         hboxy.getChildren().addAll(imageViewCardOnHands);
     }
-    */
+    
     
 }
 
