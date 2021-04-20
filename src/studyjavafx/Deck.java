@@ -86,27 +86,18 @@ public class Deck {
     *
     *
     */
-    public ArrayList<Card> botDropCard(){
+    public void botDropCard(int size){
         deck = new ArrayList<Card>();
-        for(int i = 0;i<deck.size();i++){
-            int forCount = 0;
-            String refSuit = null;
-            for(int j = i+1;j<deck.size();j++){
-                if(deck.get(i).getSuit().equals(deck.get(j).getSuit())){
-                    forCount++;
-                    refSuit = deck.get(i).getSuit();
-                }
-            }
-            if(forCount>1){
-                //drop all common card
-                for(int k = 0;k<deck.size();k++){
-                    if(deck.get(k).getSuit().equals(refSuit)){
-                        deck.remove(k);
-                    }
+        for(int i = 0;i<size;i++){
+        System.out.println(i);
+            for(int j = size;j>i+1;j--){
+                if(deck.get(i).getSuit() == deck.get(j).getSuit()){
+                   System.out.println(deck.remove(i).getSuit());
+                   System.out.println(deck.remove(j).getSuit());
+                   break;
                 }
             }
         }
-        return deck;
     }
     
     

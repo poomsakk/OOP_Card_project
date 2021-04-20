@@ -32,6 +32,7 @@ public class GameGUIController implements Initializable {
     private Deck mainDeck;
     private Deck playerDeck;
     int x = 0;
+    private Deck botDeck;
     
 
     /**
@@ -40,8 +41,9 @@ public class GameGUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        botDeck = new Deck();
         mainDeck = new Deck(true);   
-        //mainDeck.shuffleDeck();
+        mainDeck.shuffleDeck();
         
         playerDeck = new Deck();
         
@@ -51,6 +53,7 @@ public class GameGUIController implements Initializable {
         imgView1.setImage(new Image("studyjavafx/images/backOfCard.jpg"));
         
         LoadGameForOneBots();
+        
         
     }   
     
@@ -92,6 +95,8 @@ public class GameGUIController implements Initializable {
         updateCardOnHand();
     }
     
+    
+    
     private void LoadGameForOneBots(){
         int size = 26;//scale>10
         for(int i = 0; i < size;i++){
@@ -108,6 +113,16 @@ public class GameGUIController implements Initializable {
         hbox2.setAlignment(Pos.CENTER);
         hbox2.setSpacing(29);
         hbox2.getChildren().addAll(checkBoxs);
+        
+        /*
+        //Bot Card
+        for(int i = 0 ;i <size;i++){
+            botDeck.addCard(mainDeck.draw());
+        }
+        System.out.println("bot"+botDeck.getSize());
+        botDeck.botDropCard(botDeck.getSize());
+        System.out.println(botDeck);
+        */
          /**Click On imgView1 to move Down
         imgView1.setImage(new Image("studyjavafx/images/backOfCard.jpg"));
         imgView1.addEventFilter(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
