@@ -24,6 +24,10 @@ public class Card implements Comparable<Card>{
         this.faceName = faceName.toLowerCase();
         this.suit = suit.toLowerCase();
         String fileName = suit + "_of_" + faceName + ".png";
+        if ("5".equals(suit) && "clubs".equals(faceName)){
+            suit = "15";
+            fileName = suit + "_of_" + faceName + ".png";
+        }
         image = new Image("studyjavafx/images/" + fileName);
         this.priority = priority;
     }
