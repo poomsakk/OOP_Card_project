@@ -10,20 +10,22 @@
 
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.GameGUIController">
    <children>
-      <Button fx:id="drawButton" layoutX="616.0" layoutY="210.0" mnemonicParsing="false" onAction="#drawButtonClicked" text="Draw" />
-      <ImageView fx:id="imgView1" fitHeight="150.0" fitWidth="115.0" layoutX="585.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgView1" fitHeight="150.0" fitWidth="115.0" layoutX="583.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
       <VBox layoutX="70.0" layoutY="400.0" prefHeight="236.0" prefWidth="100.0">
          <children>
             <HBox fx:id="hboxy" alignment="CENTER" maxHeight="150.0" prefHeight="150.0" prefWidth="100.0" spacing="3.0" />
             <HBox fx:id="hbox2" alignment="CENTER" maxHeight="150.0" prefHeight="40.0" prefWidth="100.0" spacing="3.0" />
          </children>
       </VBox>
-      <Button layoutX="184.0" layoutY="335.0" mnemonicParsing="false" onAction="#dropCard" text="drop" />
+      <Button layoutX="170.0" layoutY="335.0" mnemonicParsing="false" onAction="#dropCard" text="drop" />
       <Button layoutX="94.0" layoutY="335.0" mnemonicParsing="false" onAction="#sortCardOnHands" text="sort" />
-      <Label layoutX="430.0" layoutY="288.0" text="ดรอปได้ทีละ 2 ใบ เลขต้องเหมือนกันด้วย นะแจ๊ะ">
+      <Label layoutX="484.0" layoutY="324.0" text="ดรอปได้ทีละ 2 ใบ เลขต้องเหมือนกันด้วย นะแจ๊ะ">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
+      <Button layoutX="262.0" layoutY="335.0" mnemonicParsing="false" text="End Turn" />
+      <Label fx:id="labelBot" layoutX="313.0" layoutY="62.0" prefHeight="17.0" prefWidth="152.0" text="Label" />
+      <ImageView fx:id="img" fitHeight="150.0" fitWidth="115.0" layoutX="583.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

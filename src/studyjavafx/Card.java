@@ -43,7 +43,7 @@ public class Card implements Comparable<Card>{
 
     @Override
     public String toString() {
-        return "Card{" + "suit=" + suit + ", faceName=" + faceName + "}";
+        return suit + "_of_" + faceName + "\n";
     }
 
     @Override

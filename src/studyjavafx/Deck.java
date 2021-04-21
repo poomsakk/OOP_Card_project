@@ -76,6 +76,7 @@ public class Deck {
 
     @Override
     public String toString() {
+        this.sortDeck();
         return deck+" ";
     }
     
