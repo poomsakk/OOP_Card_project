@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package studyjavafx;
-
+//Hello angpao
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,7 +21,7 @@ public class StudyJavaFX extends Application {
         primaryStage.setTitle("EE-KAE-CARDGAME");
         primaryStage.show();
     }
-
+    
     public static void main(String[] args) {
         launch(args);
     }
