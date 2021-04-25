@@ -93,20 +93,24 @@ public class Deck {
             if(i >= size-1) break;
             else{
                 for(int j = 0; j< size; j++){
-                    if(j >= size-1) break;
+                    System.out.println(bot.get(i).getSuit()+" "+bot.get(j).getSuit()+" i> "+i+" j> "+j+" size "+size);
+                    if(j == size) break;
                     else if(j == i) continue;
                     else{
+                        
                         if(bot.get(i).getSuit().equals(bot.get(j).getSuit())){
-                            System.out.println("Bot Drop!! : "+bot.remove(i).getSuit()+" "+bot.remove(j).getSuit());
+                            System.out.println("\nBot Drop!! : "+bot.remove(i).getSuit()+bot.remove(j-1).getSuit()+" i "+i+" j "+j+"\n");
+
                             //bot.remove(i);
                             //bot.remove(j);
                             j = 0;
                             i = 0;
                         }
-                        size = bot.size();
                     }
+                    size = bot.size();
                 }
             }
+            size = bot.size();
         }
 
     }

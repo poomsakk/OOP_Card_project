@@ -70,6 +70,7 @@ public class GameGUIController implements Initializable {
     
     @FXML
     public void sortCardOnHands(){
+        botDeck.sortDeck();
         playerDeck.sortDeck();
         updateCardOnHand();
     }
