@@ -87,7 +87,7 @@ public class Deck {
     *
     *
     */
-    public void botDropCard(ArrayList<Card> bot){
+    /*public void botDropCard(ArrayList<Card> bot){
         int size = bot.size();
         for(int i = 0;i<size;i++){
             if(i >= size-1) break;
@@ -107,8 +107,7 @@ public class Deck {
             }
             size = bot.size();
         }
-
-    }
+    }*/
     
     
 }

@@ -32,6 +32,7 @@ public class GameGUIController implements Initializable {
     @FXML private HBox hbox2;
     @FXML private HBox hboxy3;
     @FXML private Label labelBot;
+    private Deck dropedDeck;
     private ArrayList<ImageView> imageViewCardOnHands;
     private ArrayList<ImageView> imageViewCardOnBots;
     private ArrayList<CheckBox> checkBoxs;
@@ -53,6 +54,7 @@ public class GameGUIController implements Initializable {
         
         playerDeck = new Deck();
         botDeck = new Deck();
+        dropedDeck = new Deck();
         
         checkBoxs = new ArrayList<>();
         
@@ -75,6 +77,16 @@ public class GameGUIController implements Initializable {
         updateCardOnHand();
     }
     
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                                    @Method Drop!!!
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    
     @FXML public void dropCard() throws InterruptedException{
         int check = 0;
         for(CheckBox checkBox : checkBoxs)
@@ -89,6 +101,10 @@ public class GameGUIController implements Initializable {
                         if(playerDeck.getDeck().get(i).getSuit().equals(playerDeck.getDeck().get(j).getSuit()))
                         {
                             System.out.println("i=" + i + " j=" + j);
+                            
+                            dropedDeck.addCard(playerDeck.getDeck().get(i));
+                            dropedDeck.addCard(playerDeck.getDeck().get(j));
+
                             System.out.println(playerDeck.getDeck().remove(j).getSuit());
                             System.out.println(playerDeck.getDeck().remove(i).getSuit());
                             done = true;
@@ -96,15 +112,41 @@ public class GameGUIController implements Initializable {
                         }
                     }
                 }
+                System.out.println(dropedDeck.getDeck());
                 if(done) break;
             }
         }
         System.out.println(botDeck.getSize());
         botDeck.sortDeck();
-        botDeck.botDropCard(botDeck.getDeck());
+        botDropCard(botDeck.getDeck());
         //System.out.println(botDeck);
         updateCardOnHand();
     }
+    
+    public void botDropCard(ArrayList<Card> bot){
+        int size = bot.size();
+        for(int i = 0;i<size;i++){
+            if(i >= size-1) break;
+            else{
+                for(int j = 0; j< size; j++){
+                    if(j == size) break;
+                    else if(j == i) continue;
+                    else{
+                        if(bot.get(i).getSuit().equals(bot.get(j).getSuit())){
+                            System.out.println("\nBot Drop!! : "+bot.remove(i).getSuit()+bot.remove(j-1).getSuit()+" i "+i+" j "+j+"\n");
+                            j = 0;
+                            i = 0;
+                            updateCardOnHand();
+                        }
+                    }
+                    size = bot.size();
+                }
+            }
+            size = bot.size();
+        }
+    }
+    
+    
     
     int yy = 0;
     private void transFormer(){
