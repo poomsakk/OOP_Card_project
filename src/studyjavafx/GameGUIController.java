@@ -99,6 +99,7 @@ public class GameGUIController implements Initializable {
             }
         }
         System.out.println(botDeck.getSize());
+        botDeck.sortDeck();
         botDeck.botDropCard(botDeck.getDeck());
         //System.out.println(botDeck);
         updateCardOnHand();

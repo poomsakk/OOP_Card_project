@@ -89,19 +89,21 @@ public class Deck {
     */
     public void botDropCard(ArrayList<Card> bot){
         int size = bot.size();
-        System.out.println(size);
-        for(int i = 0;i<size-1;i++){
-            System.out.println("++Size "+size+" i "+i);
-            if(i+1 == size-1) break;
+        for(int i = 0;i<size;i++){
+            if(i >= size-1) break;
             else{
-                for(int j = i+1; j< size; j++){
-                    size = bot.size();
-                    System.out.println("Size "+size+" j "+j);
-                    if(bot.get(i).getSuit().equals(bot.get(j).getSuit())){    
-                        bot.remove(i);
-                        bot.remove(j);
-                        break;
-                        //System.out.println("bot : "+bot);
+                for(int j = 0; j< size; j++){
+                    if(j >= size-1) break;
+                    else if(j == i) continue;
+                    else{
+                        if(bot.get(i).getSuit().equals(bot.get(j).getSuit())){
+                            System.out.println("Bot Drop!! : "+bot.remove(i).getSuit()+" "+bot.remove(j).getSuit());
+                            //bot.remove(i);
+                            //bot.remove(j);
+                            j = 0;
+                            i = 0;
+                        }
+                        size = bot.size();
                     }
                 }
             }

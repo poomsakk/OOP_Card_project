@@ -34,7 +34,7 @@ public class Card implements Comparable<Card>{
     }
 
     public String getSuit() {
-        return suit;
+        return suit.toLowerCase();
     }
 
     public Image getImage() {
