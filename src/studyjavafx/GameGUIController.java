@@ -122,7 +122,7 @@ public class GameGUIController implements Initializable {
         //System.out.println(botDeck);
         updateCardOnHand();
     }
-    
+    //This Method moved from the deck calas.
     public void botDropCard(ArrayList<Card> bot){
         int size = bot.size();
         for(int i = 0;i<size;i++){
@@ -147,7 +147,9 @@ public class GameGUIController implements Initializable {
     }
     
     
-    
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            This @Method for animateion while draw the Card from mainDeck
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
     int yy = 0;
     private void transFormer(){
         count++;
@@ -172,7 +174,7 @@ public class GameGUIController implements Initializable {
     }
     
     /*
-    //not used now
+    //not used now but soon.
     private void LoadGameForOneBots(){
         int size = 26;//scale>10
         for(int i = 0; i < size;i++){
@@ -197,6 +199,9 @@ public class GameGUIController implements Initializable {
     }
     */
     
+    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+            This @method will update the image in the imageview box
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
     private void updateCardOnHand(){
         labelBot.setText("Bot1 card left x" + botDeck.getSize());
         imageViewCardOnHands.clear();
@@ -214,12 +219,9 @@ public class GameGUIController implements Initializable {
         hboxy.getChildren().addAll(imageViewCardOnHands);
         hbox2.getChildren().addAll(checkBoxs);
         /*
-        +
-        +
-        +
+
         +This part for bot's operation.
-        +
-        +
+
         */
         imageViewCardOnBots.clear();
         hboxy3.getChildren().clear();

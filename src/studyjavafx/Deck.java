@@ -87,6 +87,9 @@ public class Deck {
     *
     *
     */
+    /*
+    @instruction This method now move to GameGuiController for comfortable to make a time delay and animate.
+    */
     /*public void botDropCard(ArrayList<Card> bot){
         int size = bot.size();
         for(int i = 0;i<size;i++){
