@@ -75,7 +75,7 @@ public class GameGUIController implements Initializable {
         updateCardOnHand();
     }
     
-    @FXML public void dropCard(){
+    @FXML public void dropCard() throws InterruptedException{
         int check = 0;
         for(CheckBox checkBox : checkBoxs)
             if(checkBox.isSelected())
@@ -86,7 +86,7 @@ public class GameGUIController implements Initializable {
                 for (int j = 0; j < checkBoxs.size(); j++) {
                     if(i!=j && checkBoxs.get(i).isSelected() && checkBoxs.get(j).isSelected())
                     {
-                        if(playerDeck.getDeck().get(i).getSuit() == playerDeck.getDeck().get(j).getSuit())
+                        if(playerDeck.getDeck().get(i).getSuit().equals(playerDeck.getDeck().get(j).getSuit()))
                         {
                             System.out.println("i=" + i + " j=" + j);
                             System.out.println(playerDeck.getDeck().remove(j).getSuit());
@@ -129,6 +129,7 @@ public class GameGUIController implements Initializable {
         
     }
     
+    /*
     //not used now
     private void LoadGameForOneBots(){
         int size = 26;//scale>10
@@ -152,6 +153,7 @@ public class GameGUIController implements Initializable {
         labelBot.setText("Bot1 card left x" + botDeck.getSize());
         //System.out.println(botDeck.toString());
     }
+    */
     
     private void updateCardOnHand(){
         labelBot.setText("Bot1 card left x" + botDeck.getSize());
@@ -169,14 +171,21 @@ public class GameGUIController implements Initializable {
         setSpaceHbox2((size<10?10:size));
         hboxy.getChildren().addAll(imageViewCardOnHands);
         hbox2.getChildren().addAll(checkBoxs);
-        
+        /*
+        +
+        +
+        +
+        +This part for bot's operation.
+        +
+        +
+        */
         imageViewCardOnBots.clear();
         hboxy3.getChildren().clear();
         int sizeBot = botDeck.getSize();
         for(int i = 0 ; i< sizeBot;i++){
-            imageViewCardOnBots.add(new ImageView(botDeck.getDeck().get(i).getImage()));
-            imageViewCardOnBots.get(i).setFitWidth(1100/(size<10?10:size)); //width of window /26
-            imageViewCardOnBots.get(i).setFitHeight(726*1100/(size<10?10:size)/500);//heigh of window /26
+            imageViewCardOnBots.add(new ImageView(backImage));
+            imageViewCardOnBots.get(i).setFitWidth(1100/(sizeBot<10?10:sizeBot)); //width of window /26
+            imageViewCardOnBots.get(i).setFitHeight(726*1100/(sizeBot<10?10:sizeBot)/500);//heigh of window /26
         }
         hboxy3.getChildren().addAll(imageViewCardOnBots);
         
