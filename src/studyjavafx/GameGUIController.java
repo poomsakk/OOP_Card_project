@@ -61,6 +61,7 @@ public class GameGUIController implements Initializable {
         
         //LoadGameForOneBots();
         transFormer();
+        
 
     }   
     
@@ -94,6 +95,9 @@ public class GameGUIController implements Initializable {
                 if(done) break;
             }
         }
+        System.out.println(botDeck.getSize());
+        botDeck.botDropCard(botDeck.getDeck());
+        //System.out.println(botDeck);
         updateCardOnHand();
     }
     
@@ -117,6 +121,7 @@ public class GameGUIController implements Initializable {
             }
         });
         transition.play();
+        
     }
     
     //not used now
@@ -144,6 +149,7 @@ public class GameGUIController implements Initializable {
     }
     
     private void updateCardOnHand(){
+        labelBot.setText("Bot1 card left x" + botDeck.getSize());
         imageViewCardOnHands.clear();
         hboxy.getChildren().clear();
         hbox2.getChildren().clear();

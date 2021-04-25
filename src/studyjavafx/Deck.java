@@ -87,18 +87,37 @@ public class Deck {
     *
     *
     */
-    public void botDropCard(int size){
-        deck = new ArrayList<Card>();
-        for(int i = 0;i<size;i++){
-        System.out.println(i);
-            for(int j = size;j>i+1;j--){
-                if(deck.get(i).getSuit() == deck.get(j).getSuit()){
-                   System.out.println(deck.remove(i).getSuit());
-                   System.out.println(deck.remove(j).getSuit());
-                   break;
+    public void botDropCard(ArrayList<Card> bot){
+        int size = bot.size();
+        System.out.println(size);
+        //bot.remove(0);
+        //System.out.print(bot.get(1).getSuit());
+        for(int i = 0;i<size-1;i++){
+            System.out.println("++Size "+size+" i "+i);
+            if(i+1 == size-1) break;
+            else{
+                for(int j = i+1; j< size; j++){
+                    size = bot.size();
+                    System.out.println("Size "+size+" j "+j);
+                    if(bot.get(i).getSuit().equals(bot.get(j).getSuit())){    
+                        bot.remove(i);
+                        bot.remove(j);
+                        break;
+                        //System.out.println("bot : "+bot);
+                    }
                 }
             }
         }
+        /*for(int i = 0;i<size-1;i++){
+        System.out.println(i);
+            for(int j = size-1;j>i+1;j--){
+                if(bot.get(i).getSuit() == bot.get(j).getSuit()){
+                   System.out.println(bot.remove(i).getSuit());
+                   System.out.println(bot.remove(j).getSuit());
+                   break;
+                }
+            }
+        }*/
     }
     
     
