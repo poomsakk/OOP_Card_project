@@ -30,8 +30,10 @@ public class GameGUIController implements Initializable {
     @FXML private ImageView imgView1,img;
     @FXML private HBox hboxy;
     @FXML private HBox hbox2;
+    @FXML private HBox hboxy3;
     @FXML private Label labelBot;
     private ArrayList<ImageView> imageViewCardOnHands;
+    private ArrayList<ImageView> imageViewCardOnBots;
     private ArrayList<CheckBox> checkBoxs;
     private Deck mainDeck;
     private Deck playerDeck;
@@ -55,6 +57,7 @@ public class GameGUIController implements Initializable {
         checkBoxs = new ArrayList<>();
         
         imageViewCardOnHands = new ArrayList<ImageView>();
+        imageViewCardOnBots = new ArrayList<ImageView>();
         imgView1.setImage(backImage);
         
         img.setImage(backImage);
@@ -164,6 +167,16 @@ public class GameGUIController implements Initializable {
         setSpaceHbox2((size<10?10:size));
         hboxy.getChildren().addAll(imageViewCardOnHands);
         hbox2.getChildren().addAll(checkBoxs);
+        
+        imageViewCardOnBots.clear();
+        hboxy3.getChildren().clear();
+        int sizeBot = botDeck.getSize();
+        for(int i = 0 ; i< sizeBot;i++){
+            imageViewCardOnBots.add(new ImageView(botDeck.getDeck().get(i).getImage()));
+            imageViewCardOnBots.get(i).setFitWidth(1100/(size<10?10:size)); //width of window /26
+            imageViewCardOnBots.get(i).setFitHeight(726*1100/(size<10?10:size)/500);//heigh of window /26
+        }
+        hboxy3.getChildren().addAll(imageViewCardOnBots);
         
     }
     

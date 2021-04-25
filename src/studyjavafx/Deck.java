@@ -90,8 +90,6 @@ public class Deck {
     public void botDropCard(ArrayList<Card> bot){
         int size = bot.size();
         System.out.println(size);
-        //bot.remove(0);
-        //System.out.print(bot.get(1).getSuit());
         for(int i = 0;i<size-1;i++){
             System.out.println("++Size "+size+" i "+i);
             if(i+1 == size-1) break;
@@ -108,16 +106,7 @@ public class Deck {
                 }
             }
         }
-        /*for(int i = 0;i<size-1;i++){
-        System.out.println(i);
-            for(int j = size-1;j>i+1;j--){
-                if(bot.get(i).getSuit() == bot.get(j).getSuit()){
-                   System.out.println(bot.remove(i).getSuit());
-                   System.out.println(bot.remove(j).getSuit());
-                   break;
-                }
-            }
-        }*/
+
     }
     
     

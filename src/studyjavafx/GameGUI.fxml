@@ -27,5 +27,10 @@
       <Button layoutX="262.0" layoutY="335.0" mnemonicParsing="false" text="End Turn" />
       <Label fx:id="labelBot" layoutX="313.0" layoutY="62.0" prefHeight="17.0" prefWidth="152.0" text="Label" />
       <ImageView fx:id="img" fitHeight="150.0" fitWidth="115.0" layoutX="583.0" layoutY="117.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox layoutX="112.0" layoutY="20.0" prefHeight="117.0" prefWidth="100.0">
+         <children>
+            <HBox fx:id="hboxy3" alignment="CENTER" maxHeight="150.0" prefHeight="150.0" prefWidth="100.0" spacing="3.0" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
