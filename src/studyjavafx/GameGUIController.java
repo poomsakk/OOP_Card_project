@@ -29,7 +29,7 @@ public class GameGUIController implements Initializable {
 
     //@FXML key and Variable
     @FXML
-    private ImageView imgView1, img, botimg, playerimg;
+    private ImageView imgView1, img, botimg, botimg1, playerimg, playerimg1;
     @FXML
     private HBox hboxy;
     @FXML
@@ -99,11 +99,16 @@ public class GameGUIController implements Initializable {
     @FXML
     public void endTurnButton() {
         turnCount++;
+        if (turnCount == 1) {
+                botDropCard(botDeck.getDeck());
+            } else {
         animateBotDrawfromPlayer();
+        }
     }
 
     @FXML
     public void drawCardFromBot() {
+        botimg.setLayoutY(50);
         animateDrawCardFromBot();
     }
 
@@ -165,13 +170,13 @@ public class GameGUIController implements Initializable {
     int y = 0;
 
     private void animateDrawCardFromBot() {
-        botimg.setLayoutY(50 - y);
+        botimg1.setLayoutY(50 - y);
         TranslateTransition transition1 = new TranslateTransition();
         transition1.setDuration(Duration.seconds(0.3));
         y += 720;
         transition1.setToY(y);
-        transition1.setNode(botimg);
-        botimg.setImage(backImage);
+        transition1.setNode(botimg1);
+        botimg1.setImage(backImage);
         transition1.setOnFinished((eventFin) -> {
             int check = 0;
             for (CheckBox checkBox : botCheckBoxs) {
@@ -201,17 +206,18 @@ public class GameGUIController implements Initializable {
     int y1 = 0;
 
     private void animateBotDrawfromPlayer() {
-        playerimg.setLayoutY(480 - y1);
+        if(turnCount == 1){
+            
+        }
+        playerimg1.setLayoutY(480 - y1);
         TranslateTransition transition2 = new TranslateTransition();
         transition2.setDuration(Duration.seconds(0.3));
         y1 -= 720;
         transition2.setToY(y1);
-        transition2.setNode(playerimg);
-        playerimg.setImage(backImage);
+        transition2.setNode(playerimg1);
+        playerimg1.setImage(backImage);
         transition2.setOnFinished((eventFin) -> {
-            if (turnCount == 1) {
-                botDropCard(botDeck.getDeck());
-            } else {
+            
                 System.out.println(botDeck.getSize());
                 botDeck.sortDeck();
                 botDropCard(botDeck.getDeck());
@@ -220,7 +226,6 @@ public class GameGUIController implements Initializable {
                 playerDeck.sortDeck();
                 botDeck.shuffleDeck();
                 updateCardOnHand();
-            }
         });
         transition2.play();
     }
@@ -247,16 +252,13 @@ public class GameGUIController implements Initializable {
                         System.out.println("\nBot Drop!! : " + bot.remove(i).getSuit() + bot.remove(j - 1).getSuit() + " i " + i + " j " + j + "\n");
                         i = 100;
                         j = 100;
-                        
+
                         animateBotDropCard(bot);
                         updateCardOnHand();
                     }
                     size = bot.size();
                 }
                 size = bot.size();
-            }
-            if(turnCount != 1){
-                turnCount++;
             }
         });
 
