@@ -54,6 +54,7 @@ public class GameGUIController implements Initializable {
     private Image backImage = new Image("studyjavafx/images/backOfCard.jpg");
     int count = 0;
     private Deck botDeck;
+    int turnCount = 0;
 
     /**
      * Initializes the controller class.
@@ -89,6 +90,7 @@ public class GameGUIController implements Initializable {
 
     @FXML
     public void sortCardOnHands() {
+        System.out.println("TurnCount " + turnCount);
         botDeck.sortDeck();
         playerDeck.sortDeck();
         updateCardOnHand();
@@ -96,6 +98,7 @@ public class GameGUIController implements Initializable {
 
     @FXML
     public void endTurnButton() {
+        turnCount++;
         animateBotDrawfromPlayer();
     }
 
@@ -104,9 +107,6 @@ public class GameGUIController implements Initializable {
         animateDrawCardFromBot();
     }
 
-    /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-                                @Method Drop!!!
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
     @FXML
     public void dropCard() throws InterruptedException {
         int check = 0;
@@ -116,61 +116,13 @@ public class GameGUIController implements Initializable {
             }
         }
         if (check == 2) {
-            for (int i = 0; i < checkBoxs.size(); i++) {
-                boolean done = false;
-                for (int j = 0; j < checkBoxs.size(); j++) {
-                    if (i != j && checkBoxs.get(i).isSelected() && checkBoxs.get(j).isSelected()) {
-                        if (playerDeck.getDeck().get(i).getSuit().equals(playerDeck.getDeck().get(j).getSuit())) {
-                            System.out.println("i=" + i + " j=" + j);
-                            dropedDeck.getDeck().clear(); //clear dropedDeck for display the lastes two cards that droped by player.
-                            dropedDeck.addCard(playerDeck.getDeck().get(i));
-                            dropedDeck.addCard(playerDeck.getDeck().get(j));
-
-                            System.out.println(playerDeck.getDeck().remove(j).getSuit());
-                            System.out.println(playerDeck.getDeck().remove(i).getSuit());
-                            done = true;
-                            break;
-                        }
-                    }
-                }
-                System.out.println("\nDropedDeck : " + dropedDeck.getDeck() + "\n");
-                if (done) {
-                    break;
-                }
-            }
+            animatePlayerDropCard();
         }
-        updateCardOnHand();
     }
 
     //This Method moved from the deck class.
     public void botDropCard(ArrayList<Card> bot) {
-        int size = bot.size();
-        for (int i = 0; i < size; i++) {
-            if (i >= size - 1) {
-                break;
-            } else {
-                for (int j = 0; j < size; j++) {
-                    if (j == size) {
-                        break;
-                    } else if (j == i) {
-                        continue;
-                    } else {
-                        if (bot.get(i).getSuit().equals(bot.get(j).getSuit())) {
-                            dropedDeck.getDeck().clear(); //clear dropedDeck for display the lastes two cards that droped by player.
-                            dropedDeck.addCard(botDeck.getDeck().get(i));
-                            dropedDeck.addCard(botDeck.getDeck().get(j));
-
-                            System.out.println("\nBot Drop!! : " + bot.remove(i).getSuit() + bot.remove(j - 1).getSuit() + " i " + i + " j " + j + "\n");
-                            j = 0;
-                            i = 0;
-                            updateCardOnHand();
-                        }
-                    }
-                    size = bot.size();
-                }
-            }
-            size = bot.size();
-        }
+        animateBotDropCard(bot);
     }
 
     /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -182,6 +134,7 @@ public class GameGUIController implements Initializable {
     int yy = 0;
 
     private void transFormer() {
+
         count++;
         img.setLayoutY(117 - yy);
         TranslateTransition transition = new TranslateTransition();
@@ -212,7 +165,7 @@ public class GameGUIController implements Initializable {
     int y = 0;
 
     private void animateDrawCardFromBot() {
-        botimg.setLayoutY(117 - y);
+        botimg.setLayoutY(50 - y);
         TranslateTransition transition1 = new TranslateTransition();
         transition1.setDuration(Duration.seconds(0.3));
         y += 720;
@@ -256,16 +209,104 @@ public class GameGUIController implements Initializable {
         transition2.setNode(playerimg);
         playerimg.setImage(backImage);
         transition2.setOnFinished((eventFin) -> {
-            System.out.println(botDeck.getSize());
-            botDeck.sortDeck();
-            botDropCard(botDeck.getDeck());
-            playerDeck.shuffleDeck();
-            botDeck.addCard(playerDeck.draw());
-            playerDeck.sortDeck();
-            botDeck.shuffleDeck();
-            updateCardOnHand();
+            if (turnCount == 1) {
+                botDropCard(botDeck.getDeck());
+            } else {
+                System.out.println(botDeck.getSize());
+                botDeck.sortDeck();
+                botDropCard(botDeck.getDeck());
+                playerDeck.shuffleDeck();
+                botDeck.addCard(playerDeck.draw());
+                playerDeck.sortDeck();
+                botDeck.shuffleDeck();
+                updateCardOnHand();
+            }
         });
         transition2.play();
+    }
+
+    int y2 = 0;
+
+    private void animateBotDropCard(ArrayList<Card> bot) {
+        botimg.setImage(backImage);
+        botimg.setLayoutY(50 - y2);
+        TranslateTransition transition3 = new TranslateTransition();
+        transition3.setDuration(Duration.seconds(0.3));
+        y2 += 230;
+        transition3.setToY(y2);
+        transition3.setNode(botimg);
+        transition3.setOnFinished((eventFin) -> {
+            int size = bot.size();
+            for (int i = 0; i < size; i++) {
+                for (int j = 0; j < size; j++) {
+                    if (j != i && bot.get(i).getSuit().equals(bot.get(j).getSuit())) {
+                        dropedDeck.getDeck().clear(); //clear dropedDeck for display the lastes two cards that droped by player.
+                        dropedDeck.addCard(botDeck.getDeck().get(i));
+                        dropedDeck.addCard(botDeck.getDeck().get(j));
+
+                        System.out.println("\nBot Drop!! : " + bot.remove(i).getSuit() + bot.remove(j - 1).getSuit() + " i " + i + " j " + j + "\n");
+                        i = 100;
+                        j = 100;
+                        
+                        animateBotDropCard(bot);
+                        updateCardOnHand();
+                    }
+                    size = bot.size();
+                }
+                size = bot.size();
+            }
+            if(turnCount != 1){
+                turnCount++;
+            }
+        });
+
+        transition3.play();
+    }
+
+    int y3 = 0;
+
+    private void animatePlayerDropCard() {
+        playerimg.setLayoutY(480 - y3);
+        TranslateTransition transition4 = new TranslateTransition();
+        transition4.setDuration(Duration.seconds(0.3));
+        y3 -= 200;
+        transition4.setToY(y3);
+        transition4.setNode(playerimg);
+        playerimg.setImage(backImage);
+        transition4.setOnFinished((eventFin) -> {
+            int check = 0;
+            for (CheckBox checkBox : checkBoxs) {
+                if (checkBox.isSelected()) {
+                    check++;
+                }
+            }
+            if (check == 2) {
+                for (int i = 0; i < checkBoxs.size(); i++) {
+                    boolean done = false;
+                    for (int j = 0; j < checkBoxs.size(); j++) {
+                        if (i != j && checkBoxs.get(i).isSelected() && checkBoxs.get(j).isSelected()) {
+                            if (playerDeck.getDeck().get(i).getSuit().equals(playerDeck.getDeck().get(j).getSuit())) {
+                                System.out.println("i=" + i + " j=" + j);
+                                dropedDeck.getDeck().clear(); //clear dropedDeck for display the lastes two cards that droped by player.
+                                dropedDeck.addCard(playerDeck.getDeck().get(i));
+                                dropedDeck.addCard(playerDeck.getDeck().get(j));
+
+                                System.out.println(playerDeck.getDeck().remove(j).getSuit());
+                                System.out.println(playerDeck.getDeck().remove(i).getSuit());
+                                done = true;
+                                break;
+                            }
+                        }
+                    }
+                    System.out.println("\nDropedDeck : " + dropedDeck.getDeck() + "\n");
+                    if (done) {
+                        break;
+                    }
+                }
+            }
+            updateCardOnHand();
+        });
+        transition4.play();
     }
 
     /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
