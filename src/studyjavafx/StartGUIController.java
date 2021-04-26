@@ -32,16 +32,16 @@ public class StartGUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     @FXML
-    public void startButtonClicked(ActionEvent event) throws IOException{
+    public void startButtonClicked(ActionEvent event) throws IOException {
         Parent gameRoot = FXMLLoader.load(getClass().getResource("GameGUI.fxml"));
         Scene scene = new Scene(gameRoot);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
-        
+
     }
-    
+
 }

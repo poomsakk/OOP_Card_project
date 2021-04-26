@@ -13,84 +13,86 @@ import java.util.Collections;
  * @author PREMz ,Pollapatronum
  */
 public class Deck {
+
     private ArrayList<Card> deck;
-    
+
     /*@Constructor
     Append the Card to deck ArrayList Obj.
-    */
+     */
     public Deck() {
         deck = new ArrayList<Card>();
     }
-    
-    public Deck(boolean b){
-        if(b){
+
+    public Deck(boolean b) {
+        if (b) {
             deck = new ArrayList<Card>();
-            String face[] = {"clubs","diamonds","hearts","spades",};
-            String suit[] = {"ace","2","3","4","5","6","7","8","9","10","jack","queen","king"};
+            String face[] = {"clubs", "diamonds", "hearts", "spades",};
+            String suit[] = {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"};
             int n = 0;
-            for(String s : suit){
-                for(String f : face){
+            for (String s : suit) {
+                for (String f : face) {
                     deck.add(new Card(f, s, ++n));
                 }
             }
         }
     }
-    
+
     public Deck(ArrayList<Card> deck) {
         this.deck = deck;
     }
-        
+
     //getter, setter
     public ArrayList<Card> getDeck() {
         return deck;
     }
-    
+
     /*@method
     This method will shuffle the deck ArrayList Obj.
-    */
-    public void shuffleDeck(){
+     */
+    public void shuffleDeck() {
         Collections.shuffle(deck);
     }
-    
-    public void sortDeck(){
+
+    public void sortDeck() {
         Collections.sort(deck);
     }
-    
+
     /*@method
     This method will do fist in-out logic form deck ArrayList Obj.
-    */
-    public Card draw(){
-        if(deck.size() > 0) 
+     */
+    public Card draw() {
+        if (deck.size() > 0) {
             return deck.remove(0);
-        else                
+        } else {
             return null;
+        }
     }
-    
-    public int getSize(){
+
+    public int getSize() {
         return deck.size();
     }
-    
-    public void addCard(Card card){
+
+    public void addCard(Card card) {
         deck.add(card);
     }
 
     @Override
     public String toString() {
         this.sortDeck();
-        return deck+" ";
+        return deck + " ";
     }
-    
+
     /*
     *
     *
     +++++++++++++++++For Bot+++++++++++++++++++
     *
     *
-    */
-    /*
+     */
+ /*
     @instruction This method now move to GameGuiController for comfortable to make a time delay and animate.
-    */
-    /*public void botDropCard(ArrayList<Card> bot){
+     */
+ /*public void botDropCard(ArrayList<Card> bot){
         int size = bot.size();
         for(int i = 0;i<size;i++){
             if(i >= size-1) break;
@@ -111,6 +113,4 @@ public class Deck {
             size = bot.size();
         }
     }*/
-    
-    
 }

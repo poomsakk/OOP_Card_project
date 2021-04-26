@@ -6,6 +6,7 @@
 package studyjavafx;
 //Hello angpao
 //Hello Prem
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,20 +14,20 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class StudyJavaFX extends Application {
-    
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         Parent startRoot = FXMLLoader.load(getClass().getResource("StartGUI.fxml"));
         Scene scene = new Scene(startRoot);
         primaryStage.setScene(scene);
         primaryStage.setTitle("EE-KAE-CARDGAME");
         primaryStage.show();
     }
-    
+
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
 
 /*
