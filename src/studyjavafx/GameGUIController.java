@@ -31,10 +31,12 @@ public class GameGUIController implements Initializable {
     @FXML private HBox hboxy;
     @FXML private HBox hbox2;
     @FXML private HBox hboxy3;
+    @FXML private HBox hboxy4;
     @FXML private Label labelBot;
     private Deck dropedDeck;
     private ArrayList<ImageView> imageViewCardOnHands;
     private ArrayList<ImageView> imageViewCardOnBots;
+    private ArrayList<ImageView> imageViewDropCards;
     private ArrayList<CheckBox> checkBoxs;
     private Deck mainDeck;
     private Deck playerDeck;
@@ -60,6 +62,7 @@ public class GameGUIController implements Initializable {
         
         imageViewCardOnHands = new ArrayList<ImageView>();
         imageViewCardOnBots = new ArrayList<ImageView>();
+        imageViewDropCards = new ArrayList<ImageView>();
         imgView1.setImage(backImage);
         
         img.setImage(backImage);
@@ -81,11 +84,11 @@ public class GameGUIController implements Initializable {
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-                                    @Method Drop!!!
+                                @Method Drop!!!
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
     
     @FXML public void dropCard() throws InterruptedException{
         int check = 0;
@@ -101,7 +104,7 @@ public class GameGUIController implements Initializable {
                         if(playerDeck.getDeck().get(i).getSuit().equals(playerDeck.getDeck().get(j).getSuit()))
                         {
                             System.out.println("i=" + i + " j=" + j);
-                            
+                            dropedDeck.getDeck().clear(); //clear dropedDeck for display the lastes two cards that droped by player.
                             dropedDeck.addCard(playerDeck.getDeck().get(i));
                             dropedDeck.addCard(playerDeck.getDeck().get(j));
 
@@ -122,7 +125,7 @@ public class GameGUIController implements Initializable {
         //System.out.println(botDeck);
         updateCardOnHand();
     }
-    //This Method moved from the deck calas.
+    //This Method moved from the deck class.
     public void botDropCard(ArrayList<Card> bot){
         int size = bot.size();
         for(int i = 0;i<size;i++){
@@ -218,11 +221,9 @@ public class GameGUIController implements Initializable {
         setSpaceHbox2((size<10?10:size));
         hboxy.getChildren().addAll(imageViewCardOnHands);
         hbox2.getChildren().addAll(checkBoxs);
-        /*
-
-        +This part for bot's operation.
-
-        */
+        /*++++++++++++++++++++++++++++++
+        +This part for bot's operation.+
+        ++++++++++++++++++++++++++++++*/
         imageViewCardOnBots.clear();
         hboxy3.getChildren().clear();
         int sizeBot = botDeck.getSize();
@@ -233,6 +234,15 @@ public class GameGUIController implements Initializable {
         }
         hboxy3.getChildren().addAll(imageViewCardOnBots);
         
+        imageViewDropCards.clear();
+        hboxy4.getChildren().clear();
+        int sizeDrop = dropedDeck.getSize();
+        for(int i = 0; i< sizeDrop;i++){
+            imageViewDropCards.add(new ImageView(dropedDeck.getDeck().get(i).getImage()));
+            imageViewDropCards.get(i).setFitWidth(1100/(sizeDrop<10?10:sizeDrop)); //width of window /26
+            imageViewDropCards.get(i).setFitHeight(726*1100/(sizeDrop<10?10:sizeDrop)/500);//heigh of window /26
+        }
+        hboxy4.getChildren().addAll(imageViewDropCards);
     }
     
     private void setSpaceHbox2(int size){
