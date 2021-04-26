@@ -50,6 +50,7 @@ public class GameGUIController implements Initializable {
     private ArrayList<CheckBox> botCheckBoxs;
     private Deck mainDeck;
     private Deck playerDeck;
+    private Deck mysteryCard;
     private Image backImage = new Image("studyjavafx/images/backOfCard.jpg");
     int count = 0;
     private Deck botDeck;
@@ -60,8 +61,12 @@ public class GameGUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        mysteryCard = new Deck();
         mainDeck = new Deck(true);
         mainDeck.shuffleDeck();
+        mysteryCard.addCard(mainDeck.draw());
+        System.out.println(mainDeck.getSize());
+        System.out.println(mysteryCard);
 
         playerDeck = new Deck();
         botDeck = new Deck();
@@ -87,6 +92,14 @@ public class GameGUIController implements Initializable {
         botDeck.sortDeck();
         playerDeck.sortDeck();
         updateCardOnHand();
+    }
+
+    @FXML
+    public void endTurnButton() {
+        System.out.println(botDeck.getSize());
+        botDeck.sortDeck();
+        botDropCard(botDeck.getDeck());
+        //System.out.println(botDeck);
     }
 
     /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -124,10 +137,7 @@ public class GameGUIController implements Initializable {
                 }
             }
         }
-        System.out.println(botDeck.getSize());
-        botDeck.sortDeck();
-        botDropCard(botDeck.getDeck());
-        //System.out.println(botDeck);
+
         updateCardOnHand();
     }
 
@@ -161,6 +171,7 @@ public class GameGUIController implements Initializable {
             size = bot.size();
         }
     }
+
     @FXML
     public void drawCardFromBot() {
         int check = 0;
@@ -201,14 +212,20 @@ public class GameGUIController implements Initializable {
         transition.setToY(yy);
         transition.setNode(img);
         transition.setOnFinished((eventFin) -> {
-            if (count <= 26) {
+            System.out.println("\n MainDekc left "+mainDeck.getSize()+"\n");
+            if (mainDeck.getSize() == 1) {
+                playerDeck.addCard((mainDeck.draw()));
+                System.out.println("platerDeck.getSize()=" + playerDeck.getSize()+"\nBotDeck.getSize()="+botDeck.getSize()+"\n");
+                count = 30;
+            } else if (count <= 26) {
                 playerDeck.addCard(mainDeck.draw());
-                System.out.println("platerDeck.getSize()=" + playerDeck.getSize());
                 botDeck.addCard(mainDeck.draw());
                 labelBot.setText("Bot1 card left x" + botDeck.getSize());
+                System.out.println("platerDeck.getSize()=" + playerDeck.getSize()+"\nBotDeck.getSize()="+botDeck.getSize()+"\n");
                 updateCardOnHand();
                 transFormer();
             }
+
         });
         transition.play();
 
