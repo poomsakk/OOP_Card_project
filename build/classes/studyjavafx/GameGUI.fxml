@@ -28,6 +28,8 @@
         <Button fx:id="endTurn" layoutX="262.0" layoutY="335.0" mnemonicParsing="false" onAction="#endTurnButton" text="End Turn" />
         <Label fx:id="labelBot" layoutX="44.0" layoutY="258.0" prefHeight="17.0" prefWidth="152.0" text="Label" />
         <ImageView fx:id="img" fitHeight="150.0" fitWidth="115.0" layoutX="1096.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="botimg" fitHeight="150.0" fitWidth="115.0" layoutX="632.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="playerimg" fitHeight="150.0" fitWidth="115.0" layoutX="632.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true" />
         <VBox layoutX="62.0" layoutY="-9.0" maxHeight="210.0" prefHeight="210.0" prefWidth="100.0">
             <children>
                 <HBox fx:id="hboxy3" alignment="CENTER" maxHeight="150.0" prefHeight="150.0" prefWidth="100.0" spacing="3.0" />
