@@ -7,16 +7,11 @@ package studyjavafx;
 //Hello angpao
 //Hello Prem
 
-import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class StudyJavaFX extends Application {
 
@@ -25,7 +20,7 @@ public class StudyJavaFX extends Application {
         Parent startRoot = FXMLLoader.load(getClass().getResource("StartGUI.fxml"));
         
         Scene scene = new Scene(startRoot);
-         
+        primaryStage.setResizable(false);
         primaryStage.setScene(scene);
         primaryStage.setTitle("EE-KAE-CARDGAME");
         primaryStage.show();

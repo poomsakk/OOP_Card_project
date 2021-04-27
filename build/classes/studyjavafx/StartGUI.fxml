@@ -6,9 +6,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="333.6" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.StartGUIController">
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.StartGUIController">
     <children>
-      <ImageView fx:id="img" fitHeight="667" fitWidth="1000.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="img" fitHeight="720.0" fitWidth="1280.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true" />
         <Button fx:id="startButton" alignment="CENTER" layoutX="420.0" layoutY="284.0" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="66.0" prefWidth="160.0" text="PLAY">
          <font>
             <Font name="Bodoni MT Black" size="30.0" />

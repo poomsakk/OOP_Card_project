@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -29,7 +29,7 @@ public class GameGUIController implements Initializable {
 
     //@FXML key and Variable
     @FXML
-    private ImageView imgView1, img, botimg, botimg1, playerimg, playerimg1,bg;
+    private ImageView imgView1, img, img1, botimg, botimg1, playerimg, playerimg1,bg;
     @FXML
     private HBox hboxy;
     @FXML
@@ -42,6 +42,7 @@ public class GameGUIController implements Initializable {
     private HBox hboxy5;
     @FXML
     private Label labelBot;
+    @FXML Button drawFromBot, sortBtn, dropBtn, endTurnBtn;
     private Deck dropedDeck;
     private ArrayList<ImageView> imageViewCardOnHands;
     private ArrayList<ImageView> imageViewCardOnBots;
@@ -82,10 +83,12 @@ public class GameGUIController implements Initializable {
         imgView1.setImage(backImage);
 
         img.setImage(backImage);
+        img1.setImage(backImage);
         bg.setImage(new Image("studyjavafx/images/casinobg.jpg"));
 
         //LoadGameForOneBots();
-        transFormer();
+        transFormer();//Animation Mid to Bot and Set Card
+        transFormer2();//Animation Mid to Top
 
     }
 
@@ -137,15 +140,15 @@ public class GameGUIController implements Initializable {
  /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             This @Method for animateion while draw the Card from mainDeck
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-    int yy = 0;
+    int yy = 0, yy2 = 0;
 
     private void transFormer() {
-
         count++;
-        img.setLayoutY(117 - yy);
+        //Animation Mid to Bottom
+        img.setLayoutY(260 - yy);
         TranslateTransition transition = new TranslateTransition();
-        transition.setDuration(Duration.seconds(0.3));
-        yy += 720;
+        transition.setDuration(Duration.seconds(0.2));
+        yy += 460;
         transition.setToY(yy);
         transition.setNode(img);
         transition.setOnFinished((eventFin) -> {
@@ -165,12 +168,33 @@ public class GameGUIController implements Initializable {
 
         });
         transition.play();
-
+    }
+    
+    private void transFormer2(){//Animation Mid to Top
+        img1.setLayoutY(260 - yy2);
+        TranslateTransition transition1 = new TranslateTransition();
+        transition1.setDuration(Duration.seconds(0.2));
+        yy2 -= 460;
+        transition1.setToY(yy2);
+        transition1.setNode(img1);
+        transition1.setOnFinished((SSR) -> {
+            if(count <= 26)
+                transFormer2();
+        });
+        transition1.play();
     }
 
     int y = 0;
-
+    
     private void animateDrawCardFromBot() {
+        boolean playAnimation = false;
+        int checkk = 0;
+        for (CheckBox checkBog : botCheckBoxs) {
+            if(checkBog.isSelected())
+                checkk++;
+        }
+        if(checkk == 1)
+        {
         botimg1.setLayoutY(50 - y);
         TranslateTransition transition1 = new TranslateTransition();
         transition1.setDuration(Duration.seconds(0.3));
@@ -185,23 +209,19 @@ public class GameGUIController implements Initializable {
                     check++;
                 }
             }
-            boolean done = false;
             if (check == 1) {
                 for (int i = 0; i < botCheckBoxs.size(); i++) {
                     if (botCheckBoxs.get(i).isSelected()) {
                         playerDeck.addCard(botDeck.getDeck().get(i));
                         System.out.println("BotDeck -> PlayerDeck " + botDeck.getDeck().remove(i).getSuit());
                         updateCardOnHand();
-                        done = true;
-                        break;
-                    }
-                    if (done) {
                         break;
                     }
                 }
             }
         });
         transition1.play();
+        }
     }
 
     int y1 = 0;
@@ -364,6 +384,9 @@ public class GameGUIController implements Initializable {
 
     private void setSpaceHbox(HBox hbox, int size) {
         switch (size) {
+            case 27:
+                hbox.setSpacing(27);
+                break;
             case 26:
                 hbox.setSpacing(29);
                 break;
