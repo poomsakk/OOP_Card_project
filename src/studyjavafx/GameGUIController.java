@@ -29,7 +29,7 @@ public class GameGUIController implements Initializable {
 
     //@FXML key and Variable
     @FXML
-    private ImageView imgView1, img, botimg, botimg1, playerimg, playerimg1;
+    private ImageView imgView1, img, botimg, botimg1, playerimg, playerimg1,bg;
     @FXML
     private HBox hboxy;
     @FXML
@@ -82,6 +82,7 @@ public class GameGUIController implements Initializable {
         imgView1.setImage(backImage);
 
         img.setImage(backImage);
+        bg.setImage(new Image("studyjavafx/images/casinobg.jpg"));
 
         //LoadGameForOneBots();
         transFormer();

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="667.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.MultiPlayerController">
+   <children>
+      <ImageView fx:id="img" fitHeight="667.0" fitWidth="1000.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="fourP" layoutX="404.0" layoutY="484.0" mnemonicParsing="false" onAction="#fourPButtonClicked" prefHeight="66.0" prefWidth="192.0" text="4 Players">
+         <font>
+            <Font name="Bodoni MT Black" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="threeP" layoutX="404.0" layoutY="316.0" mnemonicParsing="false" onAction="#threePButtonClicked" prefHeight="66.0" prefWidth="192.0" text="3 players">
+         <font>
+            <Font name="Bodoni MT Black" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="twoP" layoutX="404.0" layoutY="170.0" mnemonicParsing="false" onAction="#twoPButtonClicked" prefHeight="65.0" prefWidth="192.0" text="2 Players">
+         <font>
+            <Font name="Bodoni MT Black" size="24.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
