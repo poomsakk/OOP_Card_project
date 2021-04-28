@@ -19,6 +19,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.MenuButton;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.GaussianBlur;
@@ -45,7 +46,8 @@ public class StartGUIController implements Initializable {
      * Initializes the controller class.
      */
     @FXML private ImageView img;
-    private Image bg = new Image("studyjavafx/images/bg.jpg");
+    @FXML private Button play;
+    private Image bg = new Image("studyjavafx/images/background.jpg");
     
     
     @Override
@@ -58,6 +60,7 @@ public class StartGUIController implements Initializable {
 
     @FXML
     public void startButtonClicked(ActionEvent event) throws IOException {
+        
         Parent gameRoot = FXMLLoader.load(getClass().getResource("MultiPlayer.fxml"));
         Scene scene = new Scene(gameRoot);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -65,5 +68,8 @@ public class StartGUIController implements Initializable {
         stage.show();
 
     }
-    
+    @FXML
+    public void ExitButtonClicked(){
+        System.exit(0);
+    }
 }

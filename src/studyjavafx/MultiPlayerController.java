@@ -28,7 +28,7 @@ public class MultiPlayerController implements Initializable {
 
     @FXML private ImageView img;
     
-    private Image bg = new Image("studyjavafx/images/bg.jpg");
+    private Image bg = new Image("studyjavafx/images/background.jpg");
 
     /**
      * Initializes the controller class.
@@ -49,11 +49,11 @@ public class MultiPlayerController implements Initializable {
     }
     @FXML
     public void threePButtonClicked(ActionEvent event) throws IOException{
-        System.out.println("Button is pressed");
+       // System.out.println("Button is pressed");
     }
     @FXML
     public void fourPButtonClicked(ActionEvent event) throws IOException{
-        System.out.println("Button is pressed");
+       // System.out.println("Button is pressed");
     }
 
 }
