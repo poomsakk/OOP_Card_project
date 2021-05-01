@@ -18,7 +18,6 @@ public class StudyJavaFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent startRoot = FXMLLoader.load(getClass().getResource("StartGUI.fxml"));
-        
         Scene scene = new Scene(startRoot);
         primaryStage.setResizable(false);
         primaryStage.setScene(scene);
@@ -29,7 +28,7 @@ public class StudyJavaFX extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    
 }
 
 /*

@@ -50,7 +50,7 @@ public class GameGUIController implements Initializable {
     @FXML
     private HBox hboxy5;
     @FXML
-    private Label labelBot;
+    private Label labelBot, statusLabel;
     @FXML
     Button drawFromBotBtn, sortBtn, dropBtn, endTurnBtn;
     private Deck dropedDeck;
@@ -100,6 +100,7 @@ public class GameGUIController implements Initializable {
         transFormer();//Animation Mid to Bot and Set Card
         transFormer2();//Animation Mid to Top
         drawFromBotBtn.setDisable(true);
+        statusLabel.setText("เลือกทิ้งการ์ด 2 ใบจากนั้นกดปุ่ม Drop เพื่อทิ้งการ์ด \nกด End Turn เพื่อจบเทิร์น");
     }
 
     @FXML
@@ -120,6 +121,7 @@ public class GameGUIController implements Initializable {
         sortBtn.setDisable(true);
         dropBtn.setDisable(true);
         drawFromBotBtn.setDisable(false);
+        statusLabel.setText("เลือกการ์ดจาก Bot 1 ใบ จากนั้นกดปุ่ม Draw From Bot");
     }
 
     @FXML
@@ -210,6 +212,7 @@ public class GameGUIController implements Initializable {
             }
         }
         if (checkk == 1) {
+            statusLabel.setText("เลือกทิ้งการ์ด 2 ใบจากนั้นกดปุ่ม Drop เพื่อทิ้งการ์ด \nกด End Turn เพื่อจบเทิร์น");
             sortBtn.setDisable(false);
             drawFromBotBtn.setDisable(true);
             endTurnBtn.setDisable(false);
@@ -295,6 +298,7 @@ public class GameGUIController implements Initializable {
                             sortBtn.setDisable(true);
                             dropBtn.setDisable(true);
                             drawFromBotBtn.setDisable(false);
+                            statusLabel.setText("เลือกการ์ดจาก Bot 1 ใบ จากนั้นกดปุ่ม Draw From Bot");
                         }
                         updateCardOnHand();
                     }
