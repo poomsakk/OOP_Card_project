@@ -504,11 +504,20 @@ public class GameGUIController implements Initializable {
     private AnchorPane ap;
 
     private void goToEndScene() throws IOException {
-        Stage stage = (Stage) ap.getScene().getWindow();
-        Parent gameRoot = FXMLLoader.load(getClass().getResource("Win.fxml"));
-        Scene scene = new Scene(gameRoot);
-        stage.setScene(scene);
-        stage.show();
+        if (playerDeck.getSize() <= 0) {
+            Stage stage = (Stage) ap.getScene().getWindow();
+            Parent gameRoot = FXMLLoader.load(getClass().getResource("Win.fxml"));
+            Scene scene = new Scene(gameRoot);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            Stage stage = (Stage) ap.getScene().getWindow();
+            Parent gameRoot = FXMLLoader.load(getClass().getResource("Lose.fxml"));
+            Scene scene = new Scene(gameRoot);
+            stage.setScene(scene);
+            stage.show();
+        }
     }
     /*
     *  
