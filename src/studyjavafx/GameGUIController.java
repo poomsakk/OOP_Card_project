@@ -511,7 +511,7 @@ public class GameGUIController implements Initializable {
             stage.setScene(scene);
             stage.show();
         }
-        else{
+        else if(botDeck.getSize()<=0){
             Stage stage = (Stage) ap.getScene().getWindow();
             Parent gameRoot = FXMLLoader.load(getClass().getResource("Lose.fxml"));
             Scene scene = new Scene(gameRoot);

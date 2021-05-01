@@ -27,6 +27,8 @@
             </font>
         </Label>
         <Button fx:id="endTurnBtn" layoutX="262.0" layoutY="335.0" mnemonicParsing="false" onAction="#endTurnButton" text="End Turn" />
+      <ImageView fx:id="playerimg1" fitHeight="150.0" fitWidth="100.0" layoutX="608.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="playerimg" fitHeight="150.0" fitWidth="100.0" layoutX="598.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
         <ImageView fx:id="img" fitHeight="150.0" fitWidth="115.0" layoutX="1096.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="img1" fitHeight="150.0" fitWidth="115.0" layoutX="1096.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" />
         <Label fx:id="labelBot" layoutX="94.0" layoutY="263.0" prefHeight="30.0" prefWidth="190.0" text="Label" textFill="WHITE">
@@ -35,8 +37,6 @@
          </font></Label>
       <ImageView fx:id="botimg" fitHeight="150.0" fitWidth="100.0" layoutX="590.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="botimg1" fitHeight="150.0" fitWidth="100.0" layoutX="600.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="playerimg" fitHeight="150.0" fitWidth="100.0" layoutX="598.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="playerimg1" fitHeight="150.0" fitWidth="100.0" layoutX="608.0" layoutY="494.0" pickOnBounds="true" preserveRatio="true" />
         <VBox layoutX="62.0" layoutY="21.0" maxHeight="210.0" prefHeight="210.0" prefWidth="100.0">
             <children>
                 <HBox fx:id="hboxy3" alignment="CENTER" maxHeight="150.0" prefHeight="150.0" prefWidth="100.0" spacing="3.0" />
