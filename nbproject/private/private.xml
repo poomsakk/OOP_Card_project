@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/OOPProject/OOP_Card_project/src/studyjavafx/StartGUI.fxml</file>
-            <file>file:/D:/OOPProject/OOP_Card_project/src/studyjavafx/MultiPlayerController.java</file>
-            <file>file:/D:/OOPProject/OOP_Card_project/src/studyjavafx/MultiPlayer.fxml</file>
-            <file>file:/D:/OOPProject/OOP_Card_project/src/studyjavafx/StartGUIController.java</file>
-            <file>file:/D:/OOPProject/OOP_Card_project/src/studyjavafx/StudyJavaFX.java</file>
-            <file>file:/D:/OOPProject/OOP_Card_project/src/studyjavafx/GameGUIController.java</file>
-            <file>file:/D:/OOPProject/OOP_Card_project/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/Deck.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/MultiPlayerController.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/GameGUIController.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/Card.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/StudyJavaFX.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/GameGUI.fxml</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/EndGUIController.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/StartGUIController.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/StartGUI.fxml</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/EndGUI.fxml</file>
         </group>
     </open-files>
 </project-private>
