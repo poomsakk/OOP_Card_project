@@ -103,11 +103,8 @@ public class GameGUIController implements Initializable {
     @FXML
     public void endTurnButton() {
         turnCount++;
-        if (turnCount == 1) {
-                botDropCard(botDeck.getDeck());
-            } else {
         animateBotDrawfromPlayer();
-        }
+        botDropCard(botDeck);
     }
 
     @FXML
@@ -130,8 +127,9 @@ public class GameGUIController implements Initializable {
     }
 
     //This Method moved from the deck class.
-    public void botDropCard(ArrayList<Card> bot) {
-        animateBotDropCard(bot);
+    public void botDropCard(Deck deck) {
+        if(checkCardTeeJaDrop(deck.getDeck()) != 0)
+            animateBotDropCard(deck);
     }
 
     /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -227,9 +225,6 @@ public class GameGUIController implements Initializable {
     int y1 = 0;
 
     private void animateBotDrawfromPlayer() {
-        if(turnCount == 1){
-            
-        }
         playerimg1.setLayoutY(480 - y1);
         TranslateTransition transition2 = new TranslateTransition();
         transition2.setDuration(Duration.seconds(0.3));
@@ -238,14 +233,13 @@ public class GameGUIController implements Initializable {
         transition2.setNode(playerimg1);
         playerimg1.setImage(backImage);
         transition2.setOnFinished((eventFin) -> {
-            
                 System.out.println(botDeck.getSize());
                 botDeck.sortDeck();
-                botDropCard(botDeck.getDeck());
                 playerDeck.shuffleDeck();
                 botDeck.addCard(playerDeck.draw());
                 playerDeck.sortDeck();
                 botDeck.shuffleDeck();
+                botDropCard(botDeck);
                 updateCardOnHand();
         });
         transition2.play();
@@ -253,7 +247,7 @@ public class GameGUIController implements Initializable {
 
     int y2 = 0;
 
-    private void animateBotDropCard(ArrayList<Card> bot) {
+    private void animateBotDropCard(Deck deck) {
         botimg.setImage(backImage);
         botimg.setLayoutY(50 - y2);
         TranslateTransition transition3 = new TranslateTransition();
@@ -262,28 +256,52 @@ public class GameGUIController implements Initializable {
         transition3.setToY(y2);
         transition3.setNode(botimg);
         transition3.setOnFinished((eventFin) -> {
-            int size = bot.size();
+            int size = deck.getSize();
             for (int i = 0; i < size; i++) {
                 for (int j = 0; j < size; j++) {
-                    if (j != i && bot.get(i).getSuit().equals(bot.get(j).getSuit())) {
+                    if (j != i && deck.getDeck().get(i).getSuit() == deck.getDeck().get(j).getSuit()) {
                         dropedDeck.getDeck().clear(); //clear dropedDeck for display the lastes two cards that droped by player.
                         dropedDeck.addCard(botDeck.getDeck().get(i));
                         dropedDeck.addCard(botDeck.getDeck().get(j));
-
-                        System.out.println("\nBot Drop!! : " + bot.remove(i).getSuit() + bot.remove(j - 1).getSuit() + " i " + i + " j " + j + "\n");
+                        
+                        System.out.println("\nBot Drop!! : " + deck.getDeck().remove(j).getSuit() + deck.getDeck().remove(i).getSuit() + " i " + i + " j " + j + "\n");
                         i = 100;
                         j = 100;
-
-                        animateBotDropCard(bot);
+                        if(checkCardTeeJaDrop(deck.getDeck()) != 0)    
+                            animateBotDropCard(deck);
                         updateCardOnHand();
                     }
-                    size = bot.size();
                 }
-                size = bot.size();
             }
         });
-
         transition3.play();
+    }
+    
+    private int checkCardTeeJaDrop(ArrayList<Card> deck){
+        ArrayList<Card> refDeck = new ArrayList<Card>();
+        for(Card card : deck)
+            refDeck.add(card);
+        int count = 0;
+        boolean repeat = false;
+        do {            
+            int size = refDeck.size();
+            repeat = false;
+            for(int i = 0; i < size; i++){
+                boolean breakkkk = false;
+                for(int j = 0; j < size; j++){
+                    if(i!=j && refDeck.get(i).getSuit() == refDeck.get(j).getSuit()){
+                        refDeck.remove(j);
+                        refDeck.remove(i);
+                        count++;
+                        repeat = true;
+                        breakkkk = true;
+                        break;
+                    }
+                }
+                if(breakkkk)    break;
+            }
+        } while (repeat);
+        return count;
     }
 
     int y3 = 0;
@@ -331,7 +349,7 @@ public class GameGUIController implements Initializable {
         });
         transition4.play();
     }
-
+    
     /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             This @method will update the image in the imageview box
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
