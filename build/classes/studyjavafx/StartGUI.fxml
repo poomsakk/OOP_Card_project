@@ -9,23 +9,23 @@
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.StartGUIController">
     <children>
       <ImageView fx:id="img" fitHeight="720.0" fitWidth="1280.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true" />
-        <Button fx:id="startButton" alignment="CENTER" layoutX="560.0" layoutY="293.0" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="66.0" prefWidth="160.0" text="เล่นเกม" AnchorPane.leftAnchor="560.0" AnchorPane.rightAnchor="560.0">
+        <Button fx:id="startButton" alignment="CENTER" layoutX="560.0" layoutY="293.0" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="66.0" prefWidth="160.0" text="PLAY" AnchorPane.leftAnchor="560.0" AnchorPane.rightAnchor="560.0">
          <font>
             <Font name="Bodoni MT Black" size="30.0" />
          </font>
       </Button>
-      <Button fx:id="exit" layoutX="560.0" layoutY="553.0" mnemonicParsing="false" onAction="#ExitButtonClicked" prefHeight="66.0" prefWidth="160.0" text="ออก" AnchorPane.bottomAnchor="100.60000000000002" AnchorPane.leftAnchor="560.0" AnchorPane.rightAnchor="560.0" AnchorPane.topAnchor="553.0">
+      <Button fx:id="exit" layoutX="560.0" layoutY="553.0" mnemonicParsing="false" onAction="#ExitButtonClicked" prefHeight="66.0" prefWidth="160.0" text="EXIT" AnchorPane.bottomAnchor="100.60000000000002" AnchorPane.leftAnchor="560.0" AnchorPane.rightAnchor="560.0" AnchorPane.topAnchor="553.0">
          <font>
             <Font name="Bodoni MT Black" size="30.0" />
          </font></Button>
-      <Text layoutX="377.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="อีแก่กินน้ำ" textAlignment="CENTER" wrappingWidth="525.336799621582" AnchorPane.leftAnchor="377.0" AnchorPane.rightAnchor="377.66320037841797">
+      <Text layoutX="377.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EE-KAE" textAlignment="CENTER" wrappingWidth="525.336799621582" AnchorPane.leftAnchor="377.0" AnchorPane.rightAnchor="377.66320037841797">
          <font>
             <Font name="Elephant" size="96.0" />
          </font>
       </Text>
-      <Button fx:id="howToPlay" layoutX="560.0" layoutY="423.0" mnemonicParsing="false" onAction="#HTPButtonClicked" prefHeight="66.0" prefWidth="160.0" text="วิธีการเล่น">
+      <Button fx:id="howToPlay" layoutX="560.0" layoutY="423.0" mnemonicParsing="false" onAction="#HTPButtonClicked" prefHeight="66.0" prefWidth="160.0" text="HOW TO PLAY">
          <font>
-            <Font name="Bodoni MT Black" size="30.0" />
+            <Font name="Bodoni MT Black" size="16.0" />
          </font>
       </Button>
     </children>
