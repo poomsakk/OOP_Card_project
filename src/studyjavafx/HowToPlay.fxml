@@ -9,7 +9,7 @@
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.HowToPlayController">
    <children>
       <ImageView fx:id="img" fitHeight="720.0" fitWidth="1280.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="back" layoutX="1101.0" layoutY="614.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="61.0" prefWidth="128.0" text="BACK">
+      <Button fx:id="back" layoutX="1101.0" layoutY="614.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="61.0" prefWidth="128.0" text="กลับ">
          <font>
             <Font name="Bodoni MT Black" size="24.0" />
          </font>
@@ -28,7 +28,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="71.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. จับคู่ไพ่ที่อยู่ในมือโดยเลือกไพ่ที่มีตัวเลขหรือตัวอักษรเหมือนกันแล้วกดปุ่ม &quot;Drop&quot; จะทิ้งไพ่ที่เหมือนกันเป็นคู่ สามารถกดปุ่ม &quot;sort&quot; เพื่อเรียงไพ่จากต่ำไปสูงได้ เพื่อให้ง่ายต่อการจับคู่ไพ่มากขึ้น" wrappingWidth="911.7367057800293">
+      <Text fill="WHITE" layoutX="71.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. จับคู่ไพ่ที่อยู่ในมือโดยเลือกไพ่ที่มีตัวเลขหรือตัวอักษรเหมือนกันแล้วกดปุ่ม &quot;Drop&quot; จะทิ้งไพ่ที่เหมือนกันเป็นคู่ สามารถกดปุ่ม &quot;Sort&quot; เพื่อเรียงไพ่จากต่ำไปสูงได้ เพื่อให้ง่ายต่อการจับคู่ไพ่มากขึ้น" wrappingWidth="911.7367057800293">
          <font>
             <Font size="20.0" />
          </font>
@@ -38,7 +38,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="71.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. เมื่อบอทเล่นจบเทิร์นแล้ว ให้เลือกไพ่ที่ต้องการหยิบจากบอทเพื่อนำมาจับคู่ และกดปุ่ม &quot;Draw from bot&quot; จะได้ไพ่ในมือเพิ่มมา 1 ใบ ถ้าสามารถจับคู่ได้ให้เลือกคู่แล้วกด &quot;Drop&quot; ถ้าไม่สามารถจับคู่ได้ให้กด &quot;End turn&quot;" wrappingWidth="1193.3538818359375">
+      <Text fill="WHITE" layoutX="82.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. เมื่อบอทเล่นจบเทิร์นแล้ว ให้เลือกไพ่ที่ต้องการหยิบจากบอทเพื่อนำมาจับคู่ และกดปุ่ม &quot;Draw from bot&quot; จะได้ไพ่ในมือเพิ่มมา 1 ใบ ถ้าสามารถจับคู่ได้ให้เลือกคู่แล้วกด &quot;Drop&quot; ถ้าไม่สามารถจับคู่ได้ให้กด &quot;End turn&quot;" wrappingWidth="1193.3538818359375">
          <font>
             <Font size="20.0" />
          </font>
