@@ -15,7 +15,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -23,11 +25,19 @@ import javafx.stage.Stage;
  *
  * @author PolWarapob
  */
-public class EndGUIController implements Initializable {
+public class WinController implements Initializable {
+
+    @FXML
+    private ImageView img;
+    @FXML
+    private Label lab;
+    private Image bg = new Image("studyjavafx/images/background.jpg");
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        img.setImage(bg);
+        img.getImage();
+
     }
 
     @FXML
@@ -38,7 +48,7 @@ public class EndGUIController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
+
     @FXML
     public void playAgainButtonClicked(ActionEvent event) throws IOException {
         Parent gameRoot = FXMLLoader.load(getClass().getResource("GameGUI.fxml"));
@@ -46,6 +56,7 @@ public class EndGUIController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+
     }
 
 }

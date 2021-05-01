@@ -6,18 +6,27 @@
  */
 package studyjavafx;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -29,7 +38,7 @@ public class GameGUIController implements Initializable {
 
     //@FXML key and Variable
     @FXML
-    private ImageView imgView1, img, img1, botimg, botimg1, playerimg, playerimg1,bg;
+    private ImageView imgView1, img, img1, botimg, botimg1, playerimg, playerimg1, bg;
     @FXML
     private HBox hboxy;
     @FXML
@@ -42,7 +51,8 @@ public class GameGUIController implements Initializable {
     private HBox hboxy5;
     @FXML
     private Label labelBot;
-    @FXML Button drawFromBotBtn, sortBtn, dropBtn, endTurnBtn;
+    @FXML
+    Button drawFromBotBtn, sortBtn, dropBtn, endTurnBtn;
     private Deck dropedDeck;
     private ArrayList<ImageView> imageViewCardOnHands;
     private ArrayList<ImageView> imageViewCardOnBots;
@@ -50,7 +60,7 @@ public class GameGUIController implements Initializable {
     private ArrayList<CheckBox> checkBoxs;
     private ArrayList<CheckBox> botCheckBoxs;
     private Deck mainDeck;
-    private Deck playerDeck;
+    public Deck playerDeck;
     private Deck mysteryCard;
     private Image backImage = new Image("studyjavafx/images/backOfCard.jpg");
     int count = 0;
@@ -105,7 +115,7 @@ public class GameGUIController implements Initializable {
         turnCount++;
         animateBotDrawfromPlayer();
         botDropCard(botDeck);
-        
+
         endTurnBtn.setDisable(true);
         sortBtn.setDisable(true);
         dropBtn.setDisable(true);
@@ -133,8 +143,9 @@ public class GameGUIController implements Initializable {
 
     //This Method moved from the deck class.
     public void botDropCard(Deck deck) {
-        if(checkCardTeeJaDrop(deck.getDeck()) != 0)
+        if (checkCardTeeJaDrop(deck.getDeck()) != 0) {
             animateBotDropCard(deck);
+        }
     }
 
     /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -172,8 +183,8 @@ public class GameGUIController implements Initializable {
         });
         transition.play();
     }
-    
-    private void transFormer2(){//Animation Mid to Top
+
+    private void transFormer2() {//Animation Mid to Top
         img1.setLayoutY(260 - yy2);
         TranslateTransition transition1 = new TranslateTransition();
         transition1.setDuration(Duration.seconds(0.2));
@@ -181,23 +192,24 @@ public class GameGUIController implements Initializable {
         transition1.setToY(yy2);
         transition1.setNode(img1);
         transition1.setOnFinished((SSR) -> {
-            if(count <= 26)
+            if (count <= 26) {
                 transFormer2();
+            }
         });
         transition1.play();
     }
 
     int y = 0;
-    
+
     private void animateDrawCardFromBot() {
         boolean playAnimation = false;
         int checkk = 0;
         for (CheckBox checkBog : botCheckBoxs) {
-            if(checkBog.isSelected())
+            if (checkBog.isSelected()) {
                 checkk++;
+            }
         }
-        if(checkk == 1)
-        {
+        if (checkk == 1) {
             sortBtn.setDisable(false);
             drawFromBotBtn.setDisable(true);
             endTurnBtn.setDisable(false);
@@ -242,14 +254,14 @@ public class GameGUIController implements Initializable {
         transition2.setNode(playerimg1);
         playerimg1.setImage(backImage);
         transition2.setOnFinished((eventFin) -> {
-                System.out.println(botDeck.getSize());
-                int range = playerDeck.getSize();
-                int rand = (int)(Math.random() * range);
-                botDeck.addCard(playerDeck.getDeck().get(rand));
-                playerDeck.getDeck().remove(rand);
-                botDeck.shuffleDeck();
-                botDropCard(botDeck);
-                updateCardOnHand();
+            System.out.println(botDeck.getSize());
+            int range = playerDeck.getSize();
+            int rand = (int) (Math.random() * range);
+            botDeck.addCard(playerDeck.getDeck().get(rand));
+            playerDeck.getDeck().remove(rand);
+            botDeck.shuffleDeck();
+            botDropCard(botDeck);
+            updateCardOnHand();
         });
         transition2.play();
     }
@@ -272,13 +284,13 @@ public class GameGUIController implements Initializable {
                         dropedDeck.getDeck().clear(); //clear dropedDeck for display the lastes two cards that droped by player.
                         dropedDeck.addCard(botDeck.getDeck().get(i));
                         dropedDeck.addCard(botDeck.getDeck().get(j));
-                        
+
                         System.out.println("\nBot Drop!! : " + deck.getDeck().remove(j).getSuit() + deck.getDeck().remove(i).getSuit() + " i " + i + " j " + j + "\n");
                         i = 100;
                         j = 100;
-                        if(checkCardTeeJaDrop(deck.getDeck()) != 0)    
+                        if (checkCardTeeJaDrop(deck.getDeck()) != 0) {
                             animateBotDropCard(deck);
-                        else{
+                        } else {
                             endTurnBtn.setDisable(true);
                             sortBtn.setDisable(true);
                             dropBtn.setDisable(true);
@@ -291,20 +303,21 @@ public class GameGUIController implements Initializable {
         });
         transition3.play();
     }
-    
-    private int checkCardTeeJaDrop(ArrayList<Card> deck){
+
+    private int checkCardTeeJaDrop(ArrayList<Card> deck) {
         ArrayList<Card> refDeck = new ArrayList<Card>();
-        for(Card card : deck)
+        for (Card card : deck) {
             refDeck.add(card);
+        }
         int count = 0;
         boolean repeat = false;
-        do {            
+        do {
             int size = refDeck.size();
             repeat = false;
-            for(int i = 0; i < size; i++){
+            for (int i = 0; i < size; i++) {
                 boolean breakkkk = false;
-                for(int j = 0; j < size; j++){
-                    if(i!=j && refDeck.get(i).getSuit() == refDeck.get(j).getSuit()){
+                for (int j = 0; j < size; j++) {
+                    if (i != j && refDeck.get(i).getSuit() == refDeck.get(j).getSuit()) {
                         refDeck.remove(j);
                         refDeck.remove(i);
                         count++;
@@ -313,7 +326,9 @@ public class GameGUIController implements Initializable {
                         break;
                     }
                 }
-                if(breakkkk)    break;
+                if (breakkkk) {
+                    break;
+                }
             }
         } while (repeat);
         return count;
@@ -361,10 +376,11 @@ public class GameGUIController implements Initializable {
                 }
             }
             updateCardOnHand();
+
         });
         transition4.play();
     }
-    
+
     /*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
             This @method will update the image in the imageview box
     ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -413,6 +429,13 @@ public class GameGUIController implements Initializable {
             imageViewDropCards.get(i).setFitHeight(726 * 1100 / (sizeDrop < 10 ? 10 : sizeDrop) / 500);//heigh of window /26
         }
         hboxy4.getChildren().addAll(imageViewDropCards);
+        if (playerDeck.getSize() <= 0 || botDeck.getSize() <= 0) {
+            try {
+                goToEndScene();
+            } catch (IOException ex) {
+                Logger.getLogger(GameGUIController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     private void setSpaceHbox(HBox hbox, int size) {
@@ -477,8 +500,27 @@ public class GameGUIController implements Initializable {
         }
     }
 
+    @FXML
+    private AnchorPane ap;
+
+    private void goToEndScene() throws IOException {
+        if (playerDeck.getSize() <= 0) {
+            Stage stage = (Stage) ap.getScene().getWindow();
+            Parent gameRoot = FXMLLoader.load(getClass().getResource("Win.fxml"));
+            Scene scene = new Scene(gameRoot);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            Stage stage = (Stage) ap.getScene().getWindow();
+            Parent gameRoot = FXMLLoader.load(getClass().getResource("Lose.fxml"));
+            Scene scene = new Scene(gameRoot);
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
     /*
-    *
+    *  
     *
     *
     *

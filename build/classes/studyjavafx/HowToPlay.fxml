@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.HowToPlayController">
+   <children>
+      <ImageView fx:id="img" fitHeight="720.0" fitWidth="1280.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="back" layoutX="1101.0" layoutY="614.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="61.0" prefWidth="128.0" text="BACK">
+         <font>
+            <Font name="Bodoni MT Black" size="24.0" />
+         </font>
+      </Button>
+      <Text fill="WHITE" layoutX="71.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="วิธีการเล่น" wrappingWidth="145.33673095703125">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font></Text>
+      <Text fill="WHITE" layoutX="71.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. เกมจะสุ่มไพ่ออกจากสำรับ 1 ใบ ไพใบนั้นจะเรียกว่า &quot;อีแก่&quot; ซึ่งจะเป็นไพ่ที่ไม่มีคู่">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="71.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2. แจกไพ่ที่เหลือในสำรับให้กับผู้เล่นแต่ละคน คนละ 1 ใบ ไปเรื่อยๆ จนหมดสำรับ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="71.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. จับคู่ไพ่ที่อยู่ในมือโดยเลือกไพ่ที่มีตัวเลขหรือตัวอักษรเหมือนกันแล้วกดปุ่ม &quot;Drop&quot; จะทิ้งไพ่ที่เหมือนกันเป็นคู่ สามารถกดปุ่ม &quot;sort&quot; เพื่อเรียงไพ่จากต่ำไปสูงได้ เพื่อให้ง่ายต่อการจับคู่ไพ่มากขึ้น" wrappingWidth="911.7367057800293">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="71.0" layoutY="427.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4. เมื่อจับคู่ไพ่ในมือจนไม่มีคู่ให้จับแล้ว ให้กดปุ่ม &quot;End turn&quot;เพื่อจบเทิร์นและปล่อยให้บอทเล่นเกมต่อ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="71.0" layoutY="527.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. เมื่อบอทเล่นจบเทิร์นแล้ว ให้เลือกไพ่ที่ต้องการหยิบจากบอทเพื่อนำมาจับคู่ และกดปุ่ม &quot;Draw from bot&quot; จะได้ไพ่ในมือเพิ่มมา 1 ใบ ถ้าสามารถจับคู่ได้ให้เลือกคู่แล้วกด &quot;Drop&quot; ถ้าไม่สามารถจับคู่ได้ให้กด &quot;End turn&quot;" wrappingWidth="1193.3538818359375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="71.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6. เล่นต่อไปเรื่อย ตามขั้นตอนที่ 5 สุดท้ายจะเหลือผู้เล่นคนเดียวที่ถือไพ่ อีแก่ ที่ไม่มีคู่ ผู้เล่นคนนั้นจะถือว่าเป็นผู้แพ้" wrappingWidth="848.849609375">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
