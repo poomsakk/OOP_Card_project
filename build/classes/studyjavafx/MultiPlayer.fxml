@@ -8,17 +8,22 @@
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.MultiPlayerController">
    <children>
       <ImageView fx:id="img" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="fourP" layoutX="544.0" layoutY="486.0" mnemonicParsing="false" onAction="#fourPButtonClicked" prefHeight="66.0" prefWidth="192.0" text="4 Players" AnchorPane.bottomAnchor="172.0">
+      <Button fx:id="fourP" layoutX="544.0" layoutY="360.0" mnemonicParsing="false" onAction="#fourPButtonClicked" prefHeight="66.0" prefWidth="192.0" text="4 Players" AnchorPane.bottomAnchor="293.6">
          <font>
             <Font name="Bodoni MT Black" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="threeP" layoutX="544.0" layoutY="327.0" mnemonicParsing="false" onAction="#threePButtonClicked" prefHeight="66.0" prefWidth="192.0" text="3 Players">
+      <Button fx:id="threeP" layoutX="544.0" layoutY="241.0" mnemonicParsing="false" onAction="#threePButtonClicked" prefHeight="66.0" prefWidth="192.0" text="3 Players">
          <font>
             <Font name="Bodoni MT Black" size="24.0" />
          </font>
       </Button>
-      <Button fx:id="twoP" layoutX="544.0" layoutY="172.0" mnemonicParsing="false" onAction="#twoPButtonClicked" prefHeight="65.0" prefWidth="192.0" text="2 Players" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="544.0" AnchorPane.topAnchor="172.0">
+      <Button fx:id="twoP" layoutX="544.0" layoutY="120.0" mnemonicParsing="false" onAction="#twoPButtonClicked" prefHeight="65.0" prefWidth="192.0" text="2 Players" AnchorPane.leftAnchor="544.0" AnchorPane.rightAnchor="544.0" AnchorPane.topAnchor="120.0">
+         <font>
+            <Font name="Bodoni MT Black" size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="back" layoutX="544.0" layoutY="487.0" mnemonicParsing="false" onAction="#backButtonClicked" prefHeight="66.0" prefWidth="192.0" text="BACK">
          <font>
             <Font name="Bodoni MT Black" size="24.0" />
          </font>

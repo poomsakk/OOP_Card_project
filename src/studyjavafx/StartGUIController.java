@@ -69,6 +69,14 @@ public class StartGUIController implements Initializable {
 
     }
     @FXML
+    public void HTPButtonClicked(ActionEvent event) throws Exception{
+        Parent gameRoot = FXMLLoader.load(getClass().getResource("HowToPlay.fxml"));
+        Scene scene = new Scene(gameRoot);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
     public void ExitButtonClicked(){
         System.exit(0);
     }
