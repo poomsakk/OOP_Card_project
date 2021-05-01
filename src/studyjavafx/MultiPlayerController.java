@@ -55,5 +55,14 @@ public class MultiPlayerController implements Initializable {
     public void fourPButtonClicked(ActionEvent event) throws IOException{
        // System.out.println("Button is pressed");
     }
+    @FXML
+    public void backButtonClicked(ActionEvent event) throws IOException{
+       // System.out.println("Button is pressed");
+       Parent gameRoot = FXMLLoader.load(getClass().getResource("StartGUI.fxml"));
+        Scene scene = new Scene(gameRoot);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 
 }
