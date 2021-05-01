@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -23,29 +23,40 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author iamsu
+ * @author PolWarapob
  */
-public class HowToPlayController implements Initializable {
+public class LoseController implements Initializable {
 
-    @FXML private ImageView img;
-    private Image bg = new Image("studyjavafx/images/casinobg.jpg");
-    
-    
+    @FXML
+    private ImageView img;
+    @FXML
+    private Label lab;
+    private Image bg = new Image("studyjavafx/images/background.jpg");
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-     
         img.setImage(bg);
         img.getImage();
+    
     }
 
     @FXML
-    public void backButtonClicked(ActionEvent event) throws IOException {
+    public void mainMenuButtonClicked(ActionEvent event) throws IOException {
         Parent gameRoot = FXMLLoader.load(getClass().getResource("StartGUI.fxml"));
         Scene scene = new Scene(gameRoot);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    public void playAgainButtonClicked(ActionEvent event) throws IOException {
+        Parent gameRoot = FXMLLoader.load(getClass().getResource("GameGUI.fxml"));
+        Scene scene = new Scene(gameRoot);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+
     }
 
 }

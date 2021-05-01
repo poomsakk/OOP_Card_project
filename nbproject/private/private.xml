@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/BlackJack/OOP_Card_project/src/studyjavafx/StudyJavaFX.java</file>
-            <file>file:/D:/BlackJack/OOP_Card_project/src/studyjavafx/HowToPlayController.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/Deck.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/GameGUIController.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/Card.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/StudyJavaFX.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/EndGUIController.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/HowToPlayController.java</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/EndGUI.fxml</file>
+            <file>file:/C:/Users/User/Desktop/OOPLAB/OOP_Card_project/src/studyjavafx/StartGUIController.java</file>
         </group>
     </open-files>
 </project-private>
