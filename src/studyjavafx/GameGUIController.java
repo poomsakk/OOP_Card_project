@@ -42,7 +42,7 @@ public class GameGUIController implements Initializable {
     private HBox hboxy5;
     @FXML
     private Label labelBot;
-    @FXML Button drawFromBot, sortBtn, dropBtn, endTurnBtn;
+    @FXML Button drawFromBotBtn, sortBtn, dropBtn, endTurnBtn;
     private Deck dropedDeck;
     private ArrayList<ImageView> imageViewCardOnHands;
     private ArrayList<ImageView> imageViewCardOnBots;
@@ -89,7 +89,7 @@ public class GameGUIController implements Initializable {
         //LoadGameForOneBots();
         transFormer();//Animation Mid to Bot and Set Card
         transFormer2();//Animation Mid to Top
-
+        drawFromBotBtn.setDisable(true);
     }
 
     @FXML
@@ -105,6 +105,11 @@ public class GameGUIController implements Initializable {
         turnCount++;
         animateBotDrawfromPlayer();
         botDropCard(botDeck);
+        
+        endTurnBtn.setDisable(true);
+        sortBtn.setDisable(true);
+        dropBtn.setDisable(true);
+        drawFromBotBtn.setDisable(false);
     }
 
     @FXML
@@ -193,32 +198,36 @@ public class GameGUIController implements Initializable {
         }
         if(checkk == 1)
         {
-        botimg1.setLayoutY(50 - y);
-        TranslateTransition transition1 = new TranslateTransition();
-        transition1.setDuration(Duration.seconds(0.3));
-        y += 720;
-        transition1.setToY(y);
-        transition1.setNode(botimg1);
-        botimg1.setImage(backImage);
-        transition1.setOnFinished((eventFin) -> {
-            int check = 0;
-            for (CheckBox checkBox : botCheckBoxs) {
-                if (checkBox.isSelected()) {
-                    check++;
-                }
-            }
-            if (check == 1) {
-                for (int i = 0; i < botCheckBoxs.size(); i++) {
-                    if (botCheckBoxs.get(i).isSelected()) {
-                        playerDeck.addCard(botDeck.getDeck().get(i));
-                        System.out.println("BotDeck -> PlayerDeck " + botDeck.getDeck().remove(i).getSuit());
-                        updateCardOnHand();
-                        break;
+            sortBtn.setDisable(false);
+            drawFromBotBtn.setDisable(true);
+            endTurnBtn.setDisable(false);
+            dropBtn.setDisable(false);
+            botimg1.setLayoutY(50 - y);
+            TranslateTransition transition1 = new TranslateTransition();
+            transition1.setDuration(Duration.seconds(0.3));
+            y += 720;
+            transition1.setToY(y);
+            transition1.setNode(botimg1);
+            botimg1.setImage(backImage);
+            transition1.setOnFinished((eventFin) -> {
+                int check = 0;
+                for (CheckBox checkBox : botCheckBoxs) {
+                    if (checkBox.isSelected()) {
+                        check++;
                     }
                 }
-            }
-        });
-        transition1.play();
+                if (check == 1) {
+                    for (int i = 0; i < botCheckBoxs.size(); i++) {
+                        if (botCheckBoxs.get(i).isSelected()) {
+                            playerDeck.addCard(botDeck.getDeck().get(i));
+                            System.out.println("BotDeck -> PlayerDeck " + botDeck.getDeck().remove(i).getSuit());
+                            updateCardOnHand();
+                            break;
+                        }
+                    }
+                }
+            });
+            transition1.play();
         }
     }
 
@@ -234,10 +243,10 @@ public class GameGUIController implements Initializable {
         playerimg1.setImage(backImage);
         transition2.setOnFinished((eventFin) -> {
                 System.out.println(botDeck.getSize());
-                botDeck.sortDeck();
-                playerDeck.shuffleDeck();
-                botDeck.addCard(playerDeck.draw());
-                playerDeck.sortDeck();
+                int range = playerDeck.getSize();
+                int rand = (int)(Math.random() * range);
+                botDeck.addCard(playerDeck.getDeck().get(rand));
+                playerDeck.getDeck().remove(rand);
                 botDeck.shuffleDeck();
                 botDropCard(botDeck);
                 updateCardOnHand();
@@ -269,6 +278,12 @@ public class GameGUIController implements Initializable {
                         j = 100;
                         if(checkCardTeeJaDrop(deck.getDeck()) != 0)    
                             animateBotDropCard(deck);
+                        else{
+                            endTurnBtn.setDisable(true);
+                            sortBtn.setDisable(true);
+                            dropBtn.setDisable(true);
+                            drawFromBotBtn.setDisable(false);
+                        }
                         updateCardOnHand();
                     }
                 }
