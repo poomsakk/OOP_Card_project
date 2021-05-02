@@ -9,12 +9,18 @@
 <AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="studyjavafx.EndGUIController">
    <children>
       <ImageView fx:id="img" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lab" layoutX="527.0" layoutY="213.0" text="YOU WIN!!!!">
+      <Label fx:id="lab" layoutX="526.0" layoutY="218.0" text="YOU WIN!!!!">
          <font>
-            <Font size="42.0" />
+            <Font name="System Bold" size="48.0" />
          </font>
       </Label>
-      <Button fx:id="mainmenu" layoutX="602.0" layoutY="376.0" mnemonicParsing="false" onAction="#mainMenuButtonClicked" text="Main Menu" />
-      <Button fx:id="playagain" layoutX="604.0" layoutY="441.0" mnemonicParsing="false" onAction="#playAgainButtonClicked" text="Play Again" />
+      <Button fx:id="mainmenu" layoutX="602.0" layoutY="376.0" mnemonicParsing="false" onAction="#mainMenuButtonClicked" prefHeight="45.0" prefWidth="126.0" text="Main Menu">
+         <font>
+            <Font name="Bodoni MT Black" size="16.0" />
+         </font></Button>
+      <Button fx:id="playagain" layoutX="602.0" layoutY="495.0" mnemonicParsing="false" onAction="#playAgainButtonClicked" prefHeight="46.0" prefWidth="126.0" text="Play Again">
+         <font>
+            <Font name="Bodoni MT Black" size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>
